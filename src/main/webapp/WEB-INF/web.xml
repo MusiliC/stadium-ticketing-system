@@ -4,34 +4,5 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>Cee</servlet-name>
-    <servlet-class>com.cee.tech.HelloServlet</servlet-class>
-  </servlet>
-
-    <servlet>
-    <servlet-name>musili</servlet-name>
-    <servlet-class>com.cee.tech.HelloAgain</servlet-class>
-  </servlet>
-
-    <servlet>
-    <servlet-name>mahrez</servlet-name>
-    <servlet-class>com.cee.tech.HelloFinal</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>Cee</servlet-name>
-    <url-pattern>/musili</url-pattern>
-  </servlet-mapping>
-
-    <servlet-mapping>
-    <servlet-name>musili</servlet-name>
-    <url-pattern>/cee</url-pattern>
-  </servlet-mapping>
-
-
-    <servlet-mapping>
-    <servlet-name>mahrez</servlet-name>
-    <url-pattern>/leftie</url-pattern>
-  </servlet-mapping>
+ 
 </web-app>
