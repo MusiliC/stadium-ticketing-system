@@ -10,62 +10,67 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cee.tech.app.bean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
+import org.apache.commons.lang3.StringUtils;
 
 
 @WebServlet("/home")
 public class Home extends HttpServlet {
 
-    FixtureBeanI fixtureBean = new FixtureBean();
-    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        HttpSession httpSession = req.getSession();
+        if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
+            ServletContext context = getServletContext();
+            FixtureBeanI fixtureBean = new FixtureBean();
+            PrintWriter print = res.getWriter();
 
-        ServletContext context = getServletContext();
-        PrintWriter print = res.getWriter();
-
-        print.write(
-                "<!DOCTYPE html>\n" +
-                        "<html lang=\"en\">\n" +
-                        "<head>\n" +
-                        "    <meta charset=\"UTF-8\">\n" +
-                        "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-                        "    <title>Welcome Page</title>\n" +
-                        "    <style>\n" +
-                        "        body {\n" +
-                        "            background-color: white;\n" +
-                        "            color: rgb(1, 69, 171);\n" +
-                        "            text-align: center;\n" +
-                        "            margin-top: 20px;\n" +
-                        "        }\n" +
-                        "        .welcome-message {\n" +
-                        "            font-size: 2rem;\n" +
-                        "        }\n" +
-                        "        .fixture{\n" +
-                        "            margin-top: 10px;\n" +
-                        "            text-align: center;\n" +
-                        "            font-size: 1rem;\n" +
-                        "        }\n" +
-                        "    </style>\n" +
-                        "</head>\n" +
-                        "<body>\n" +
-                        "Welcome: " + context.getAttribute("username") + "<br/> " +
-                        context.getInitParameter("AppName") + "<br/> " +
-
-                        "    <div class=\"welcome-message\">\n" +
-                        "        Will implement stadium ticket booking system\n" +
-                        "    </div>\n" +
-                        "    <div class=\"fixture\">\n" +
-                        "        <h2>Upcoming fixtures</h2>\n" );
-                        print.write(fixtureBean.upcomingFixtures());
-                        print.write(
-                                "Server info: " + context.getServerInfo() + "<br/> " +
-                                        "Application Deployment info: " + context.getRealPath(context.getContextPath()) + "<br/> "
-                        );
-                        print.write(
-                        "    </div>\n" +
-                        "</body>\n" +
-                        "</html>\n");
+            print.write(
+                    "<!DOCTYPE html>\n" +
+                            "<html lang=\"en\">\n" +
+                            "<head>\n" +
+                            "    <meta charset=\"UTF-8\">\n" +
+                            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                            "    <title>Welcome Page</title>\n" +
+                            "    <style>\n" +
+                            "        body {\n" +
+                            "            background-color: white;\n" +
+                            "            color: rgb(1, 69, 171);\n" +
+                            "            text-align: center;\n" +
+                            "            margin-top: 20px;\n" +
+                            "        }\n" +
+                            "        .welcome-message {\n" +
+                            "            font-size: 2rem;\n" +
+                            "        }\n" +
+                            "        .fixture{\n" +
+                            "            margin-top: 10px;\n" +
+                            "            text-align: center;\n" +
+                            "            font-size: 1rem;\n" +
+                            "        }\n" +
+                            "    </style>\n" +
+                            "</head>\n" +
+                            "<body>\n" +
+                            "Welcome: " + context.getAttribute("username") + "<br/> " +
+                            context.getInitParameter("AppName") + "<br/> " +
+                            " <a href=\"./logout\"> Logout </a> " +
+                            "    <div class=\"welcome-message\">\n" +
+                            "        Will implement stadium ticket booking system\n" +
+                            "    </div>\n" +
+                            "    <div class=\"fixture\">\n" +
+                            "        <h2>Upcoming fixtures</h2>\n");
+            print.write(fixtureBean.upcomingFixtures());
+            print.write(
+                    "Server info: " + context.getServerInfo() + "<br/> " +
+                            "Application Deployment info: " + context.getRealPath(context.getContextPath()) + "<br/> "
+            );
+            print.write(
+                    "    </div>\n" +
+                            "</body>\n" +
+                            "</html>\n");
+        } else
+            res.sendRedirect("./");
     }
 
 

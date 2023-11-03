@@ -1,7 +1,10 @@
 package com.cee.tech.auth;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -12,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/login", initParams = {
         @WebInitParam(name = "username", value = "Musili"),
@@ -20,13 +24,19 @@ import javax.servlet.http.HttpServletResponse;
 public class Login extends HttpServlet {
 
     public  void doGet(HttpServletRequest req, HttpServletResponse res) throws  ServletException, IOException{
-        res.sendRedirect("./");
+        HttpSession httpSession = req.getSession();
+        if(StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId")))
+            res.sendRedirect("/home");
+        else
+            res.sendRedirect("./");
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
+        HttpSession httpSession = req.getSession(true);
+        httpSession.setAttribute("LoginId", new Date().getTime() + "");
 
+        ServletContext context = getServletContext();
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -38,8 +48,7 @@ public class Login extends HttpServlet {
         if (username.equals(context.getInitParameter("username")) && password.equals(context.getInitParameter("password"))) {
             //sending data -> another servlet
             context.setAttribute("username", username);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("./home");
-            dispatcher.forward(req, res);
+            res.sendRedirect("./home");
             // res.sendRedirect("./app/home.html");
         } else {
             PrintWriter print = res.getWriter();
