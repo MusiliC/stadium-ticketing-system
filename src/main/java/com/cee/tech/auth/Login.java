@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -23,11 +25,19 @@ public class Login extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+        ServletContext context = getServletContext();
+
+
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        if (username.equals(getInitParameter("username")) && password.equals(getInitParameter("password"))) {
-            req.setAttribute("homeInfo", "Nothing much just struggling with sleep");
+        //getInitParams - accessing servlet config
+        //getParams - getting client request data
+        //context(initialized servletContext) - context.getInitParams - servlet context
+
+        if (username.equals(context.getInitParameter("username")) && password.equals(context.getInitParameter("password"))) {
+            //sending data -> another servlet
+            context.setAttribute("username", username);
             RequestDispatcher dispatcher = req.getRequestDispatcher("./home");
             dispatcher.forward(req, res);
             // res.sendRedirect("./app/home.html");

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +21,7 @@ public class Home extends HttpServlet {
     FixtureBeanI fixtureBean = new FixtureBean();
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+        ServletContext context = getServletContext();
         PrintWriter print = res.getWriter();
 
         print.write(
@@ -37,22 +39,29 @@ public class Home extends HttpServlet {
                         "            margin-top: 20px;\n" +
                         "        }\n" +
                         "        .welcome-message {\n" +
-                        "            font-size: 4rem;\n" +
+                        "            font-size: 2rem;\n" +
                         "        }\n" +
                         "        .fixture{\n" +
                         "            margin-top: 10px;\n" +
                         "            text-align: center;\n" +
-                        "            font-size: 2rem;\n" +
+                        "            font-size: 1rem;\n" +
                         "        }\n" +
                         "    </style>\n" +
                         "</head>\n" +
                         "<body>\n" +
+                        "Welcome: " + context.getAttribute("username") + "<br/> " +
+                        context.getInitParameter("AppName") + "<br/> " +
+
                         "    <div class=\"welcome-message\">\n" +
                         "        Will implement stadium ticket booking system\n" +
                         "    </div>\n" +
                         "    <div class=\"fixture\">\n" +
                         "        <h2>Upcoming fixtures</h2>\n" );
                         print.write(fixtureBean.upcomingFixtures());
+                        print.write(
+                                "Server info: " + context.getServerInfo() + "<br/> " +
+                                        "Application Deployment info: " + context.getRealPath(context.getContextPath()) + "<br/> "
+                        );
                         print.write(
                         "    </div>\n" +
                         "</body>\n" +
