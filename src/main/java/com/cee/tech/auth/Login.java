@@ -17,6 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 })
 public class Login extends HttpServlet {
 
+    public  void doGet(HttpServletRequest req, HttpServletResponse res) throws  ServletException, IOException{
+        res.sendRedirect("./");
+    }
+
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
         String username = req.getParameter("username");

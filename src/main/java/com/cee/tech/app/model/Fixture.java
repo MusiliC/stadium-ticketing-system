@@ -1,4 +1,6 @@
-package com.cee.tech.app;
+package com.cee.tech.app.model;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 
@@ -64,11 +66,11 @@ public class Fixture implements Serializable {
     public String tableRow() {
         StringBuilder tbBuilder = new StringBuilder();
         tbBuilder.append("<tr>");
-        tbBuilder.append("<td>").append(getFixtureId().isBlank() ? "" : getFixtureId().trim()).append("</td>");
-        tbBuilder.append("<td>").append(getHomeTeam().isBlank() ? "" : getHomeTeam().trim()).append("</td>");
-        tbBuilder.append("<td>").append(getAwayTeam().isBlank() ? "" : getAwayTeam().trim()).append("</td>");
-        tbBuilder.append("<td>").append(getFixtureTime().isBlank() ? "" : getFixtureTime().trim()).append("</td>");
-        tbBuilder.append("<td>").append(getFixtureDate().isBlank() ? "" : getFixtureDate().trim()).append("</td>");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureId())).append("</td>");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getHomeTeam())).append("</td>");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty( getAwayTeam())).append("</td>");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureTime())).append("</td>");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty( getFixtureDate())).append("</td>");
         tbBuilder.append("</tr>");
         return tbBuilder.toString();
 
