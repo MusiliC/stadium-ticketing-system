@@ -1,5 +1,7 @@
 package com.cee.tech.auth;
 
+import com.cee.tech.app.model.User;
+import com.cee.tech.database.Database;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -23,9 +25,9 @@ import javax.servlet.http.HttpSession;
 })
 public class Login extends HttpServlet {
 
-    public  void doGet(HttpServletRequest req, HttpServletResponse res) throws  ServletException, IOException{
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
-        if(StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId")))
+        if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId")))
             res.sendRedirect("/home");
         else
             res.sendRedirect("./");
@@ -33,28 +35,35 @@ public class Login extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        HttpSession httpSession = req.getSession(true);
-        httpSession.setAttribute("LoginId", new Date().getTime() + "");
+
 
         ServletContext context = getServletContext();
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
+        Database database = Database.getDbInstance();
+
+        System.out.println("What time was this db created: " + database.getDatabaseCreatedAt());
+
+        for (User user : database.getUsers()) {
+            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                HttpSession httpSession = req.getSession(true);
+                httpSession.setAttribute("LoginId", new Date().getTime() + "");
+                //sending data -> another servlet
+                httpSession.setAttribute("username", username);
+                res.sendRedirect("./home");
+                // res.sendRedirect("./app/home.html");
+            }
+        }
+
         //getInitParams - accessing servlet config
         //getParams - getting client request data
         //context(initialized servletContext) - context.getInitParams - servlet context
+        PrintWriter print = res.getWriter();
 
-        if (username.equals(context.getInitParameter("username")) && password.equals(context.getInitParameter("password"))) {
-            //sending data -> another servlet
-            context.setAttribute("username", username);
-            res.sendRedirect("./home");
-            // res.sendRedirect("./app/home.html");
-        } else {
-            PrintWriter print = res.getWriter();
-
-            print.write("<html><body>Invalid credentials! <a href=\".\"> Login again </a></body></html>");
-        }
-
+        print.write("<html><body>Invalid credentials! <a href=\".\"> Login again </a></body></html>");
     }
+
+
 }

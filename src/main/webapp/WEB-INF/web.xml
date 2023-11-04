@@ -9,13 +9,13 @@
         <param-name>AppName</param-name>
         <param-value>Stadium Ticketing System</param-value>
     </context-param>
-    <context-param>
-        <param-name>username</param-name>
-        <param-value>Musili</param-value>
-    </context-param>
+<!--    <context-param>-->
+<!--        <param-name>username</param-name>-->
+<!--        <param-value>Musili</param-value>-->
+<!--    </context-param>-->
 
-    <context-param>
-        <param-name>password</param-name>
-        <param-value>Admin123</param-value>
-    </context-param>
+<!--    <context-param>-->
+<!--        <param-name>password</param-name>-->
+<!--        <param-value>Admin123</param-value>-->
+<!--    </context-param>-->
 </web-app>

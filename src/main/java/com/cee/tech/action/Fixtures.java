@@ -1,4 +1,4 @@
-package com.cee.tech.home;
+package com.cee.tech.action;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

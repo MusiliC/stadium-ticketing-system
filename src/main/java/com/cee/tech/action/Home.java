@@ -1,8 +1,8 @@
-package com.cee.tech.home;
+package com.cee.tech.action;
 
-import com.cee.tech.app.bean.FixtureBean;
-import com.cee.tech.app.bean.FixtureBeanI;
-import org.apache.commons.lang3.StringUtils;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
-@WebServlet("/tickets")
-public class Ticket extends HttpServlet {
+
+import com.cee.tech.app.bean.FixtureBean;
+import com.cee.tech.app.bean.FixtureBeanI;
+import org.apache.commons.lang3.StringUtils;
+
+
+@WebServlet("/home")
+public class Home extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
@@ -85,11 +89,11 @@ public class Ticket extends HttpServlet {
                             "      <li class=\"btn\"><a href=\"#\">Contact</a></li>\n" +
                             "    </ul>\n" +
                             "  </nav>" +
-                            "Welcome: " + context.getAttribute("username") + "<br/> " +
+                            "Welcome: " + httpSession.getAttribute("username") + "<br/> " +
                             context.getInitParameter("AppName") + "<br/> " +
-                            " <a href=\"./home\"> Home </a> " +
+                            " <a href=\"./tickets\"> Tickets </a> " +
                             "    <div class=\"welcome-message\">\n" +
-                            "        Tickets page\n" +
+                            "        Home Page\n" +
                             "    </div>\n" +
                             " <a href=\"./logout\"> Logout </a> " +
                             "    <div class=\"fixture\">\n" +
