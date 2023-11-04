@@ -1,8 +1,10 @@
 package com.cee.tech.action;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
+import com.cee.tech.app.bean.FixtureBean;
+import com.cee.tech.app.bean.FixtureBeanI;
+import com.cee.tech.app.model.Fixture;
+import com.cee.tech.database.Database;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -11,17 +13,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import com.cee.tech.app.bean.FixtureBean;
-import com.cee.tech.app.bean.FixtureBeanI;
-import org.apache.commons.lang3.StringUtils;
-
-
-@WebServlet("/home")
-public class Home extends HttpServlet {
-
-    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+@WebServlet("/fixtures")
+public class FixtureAction extends HttpServlet {
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
+        Database database = Database.getDbInstance();
+
+        database.getFixtures().add(new Fixture(req.getParameter("fixtureId"), req.getParameter("homeTeam"), req.getParameter("awayTeam"), req.getParameter("fixtureTime"), req.getParameter("fixtureDate")));
+
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
             ServletContext context = getServletContext();
             FixtureBeanI fixtureBean = new FixtureBean();
@@ -91,24 +93,10 @@ public class Home extends HttpServlet {
                             "  </nav>" +
                             "Welcome: " + httpSession.getAttribute("username") + "<br/> " +
                             context.getInitParameter("AppName") + "<br/> " +
-                            " <a href=\"./tickets\"> Tickets </a> " +
+                            " <a href=\"./home\"> Home </a> " +
                             "    <div class=\"welcome-message\">\n" +
-                            "        Home Page\n" +
+                            "        Tickets page\n" +
                             "    </div>\n" +
-                            "<form action=\"./fixtures\" method=\"POST\">\n" +
-                            "  <label for=\"fixtureId\">Fixture id:</label><br>\n" +
-                            "  <input type=\"text\" id=\"fixtureId\" name=\"fixtureId\" ><br>\n" +
-                            "  <label for=\"homeTeam\">Home Team:</label><br>\n" +
-                            "  <input type=\"text\" id=\"homeTeam\" name=\"homeTeam\"><br>\n" +
-                            "  <label for=\"awayTeam\">Away Team:</label><br>\n" +
-                            "  <input type=\"text\" id=\"awayTeam\" name=\"awayTeam\"><br>\n" +
-                            "  <label for=\"fixtureTime\">Fixture Time:</label><br>\n" +
-                            "  <input type=\"text\" id=\"fixtureTime\" name=\"fixtureTime\"><br>\n" +
-                            "  <label for=\"fixtureDate\">Fixture Date:</label><br>\n" +
-                            "  <input type=\"text\" id=\"fixtureDate\" name=\"fixtureDate\"><br><br>\n" +
-                            "  <input type=\"submit\" value=\"Submit\">\n" +
-                            "</form> " +
-                            "<br><br> " +
                             " <a href=\"./logout\"> Logout </a> " +
                             "    <div class=\"fixture\">\n" +
                             "        <h2>Upcoming fixtures</h2>\n");
@@ -118,9 +106,6 @@ public class Home extends HttpServlet {
                     "    </div>\n" +
                             "</body>\n" +
                             "</html>\n");
-        } else
-            res.sendRedirect("./");
+        }
     }
-
-
 }
