@@ -106,7 +106,7 @@ public class Fixture implements Serializable {
         tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureDate())).append("</td>");
         tbBuilder.append(" </div>");
         tbBuilder.append("<div class=\"ticket\">");
-        tbBuilder.append("  <div class=\"outlineButton\">Buy Ticket</div>");
+        tbBuilder.append("  <div class=\"outlineTicketButton\">Buy Ticket</div>");
         tbBuilder.append("</div>");
         tbBuilder.append("</div>");
         return tbBuilder.toString();

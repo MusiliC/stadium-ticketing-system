@@ -13,12 +13,10 @@ public class FixtureBean implements FixtureBeanI, Serializable {
 
         StringBuilder tbBuilder = new StringBuilder();
 
-        tbBuilder.append("<table><tr><th>Fixture ID</th> <th>Home Team</th> <th>Away Team</> <th>Fixture Time</th> <th>Fixture Date</th></tr>");
 
         for(Fixture fixture: fixtures)
             tbBuilder.append(fixture.tableRow());
 
-        tbBuilder.append("</table>");
 
         return tbBuilder.toString();
     };

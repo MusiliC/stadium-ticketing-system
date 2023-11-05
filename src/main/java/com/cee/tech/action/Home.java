@@ -179,6 +179,45 @@ public class Home extends HttpServlet {
                             "    .bgImage{\n" +
                             "      width: 100%;\n" +
                             "    }"+
+                            " .formMainContainer {\n" +
+                            "      width: 83%;\n" +
+                            "      margin: auto;\n" +
+                            "      padding-top: 10px;\n" +
+                            "      padding-bottom: 10px;\n" +
+                            "    }\n" +
+                            "    .formContainer {\n" +
+                            "      width: 600px;\n" +
+                            "      display: grid;\n" +
+                            "      grid-template-columns: auto auto;\n" +
+                            "      gap: 15px;\n" +
+                            "      margin: 20px 0px;\n" +
+                            "    }\n" +
+                            "    .fixtureTitle {\n" +
+                            "      font-size: 1.5rem;\n" +
+                            "    }\n" +
+                            "\n" +
+                            "    .normalFormButton {\n" +
+                            "      padding: 12px 24px;\n" +
+                            "      border-radius: 25px;\n" +
+                            "      border: none;\n" +
+                            "      background-color: rgb(10, 79, 182);\n" +
+                            "      color: white;\n" +
+                            "      cursor: pointer;\n" +
+                            "    }\n" +
+                            "    .formInput {\n" +
+                            "      display: flex;\n" +
+                            "      flex-direction: column;\n" +
+                            "      gap: 5px;\n" +
+                            "      margin: 5px 0px;\n" +
+                            "    }\n" +
+                            "    .formInput input {\n" +
+                            "      padding: 10px;\n" +
+                            "      border-radius: 3px;\n" +
+                            "      border: 1px solid lightgray;\n" +
+                            "    }\n" +
+                            "    .formInput input:focus {\n" +
+                            "      outline: none;\n" +
+                            "    }"+
                             "</style>" +
                             "<body>\n" +
                             "  <div class=\"navbarContainer\" >\n" +
@@ -220,23 +259,41 @@ public class Home extends HttpServlet {
                             "      </div>\n" +
                             "      <div class=\"heroImage\">\n" +
                             "        <div class=\"imageContainer\">\n" +
-                            "          <img class=\"bgImage\" src=\"./assets/stad.jpg\" alt=\"stadium\">\n" +
+                            "          <img class=\"bgImage\" src=\"/assets/stad.jpg\" alt=\"stadium\">\n" +
                             "        </div>\n" +
                             "      </div>\n" +
                             "    </div>" +
-                            "<form action=\"./fixtures\" method=\"POST\">\n" +
-                            "  <label for=\"fixtureId\">Fixture id:</label><br>\n" +
-                            "  <input type=\"text\" id=\"fixtureId\" name=\"fixtureId\" ><br>\n" +
-                            "  <label for=\"homeTeam\">Home Team:</label><br>\n" +
-                            "  <input type=\"text\" id=\"homeTeam\" name=\"homeTeam\"><br>\n" +
-                            "  <label for=\"awayTeam\">Away Team:</label><br>\n" +
-                            "  <input type=\"text\" id=\"awayTeam\" name=\"awayTeam\"><br>\n" +
-                            "  <label for=\"fixtureTime\">Fixture Time:</label><br>\n" +
-                            "  <input type=\"text\" id=\"fixtureTime\" name=\"fixtureTime\"><br>\n" +
-                            "  <label for=\"fixtureDate\">Fixture Date:</label><br>\n" +
-                            "  <input type=\"text\" id=\"fixtureDate\" name=\"fixtureDate\"><br><br>\n" +
-                            "  <input type=\"submit\" value=\"Submit\">\n" +
-                            "</form> " );
+//                            " <div class=\"formMainContainer\">\n" +
+//                            "      <div class=\"createFixtureContainer\">\n" +
+//                            "        <p class=\"fixtureTitle\">Create Fixture</p>\n" +
+//                            "\n" +
+//                            "        <form action=\"./fixtures\" method=\"post\">\n" +
+//                            "          <div class=\"formContainer\">\n" +
+//                            "            <div class=\"formInput\">\n" +
+//                            "              <label for=\"fixtureTime\">Fixture Time:</label>\n" +
+//                            "              <input type=\"text\" name=\"fixtureTime\" id=\"fixtureTime\" />\n" +
+//                            "            </div>\n" +
+//                            "            <div class=\"formInput\">\n" +
+//                            "              <label for=\"fixtureLocation\">Location:</label>\n" +
+//                            "              <input type=\"text\" name=\"fixtureLocation\" id=\"fixtureLocation\" />\n" +
+//                            "            </div>\n" +
+//                            "            <div class=\"formInput\">\n" +
+//                            "              <label for=\"homeTeam\">Home Team:</label>\n" +
+//                            "              <input type=\"text\" name=\"homeTeam\" id=\"homeTeam\" />\n" +
+//                            "            </div>\n" +
+//                            "            <div class=\"formInput\">\n" +
+//                            "              <label for=\"awayTeam\">Away Team:</label>\n" +
+//                            "              <input type=\"text\" name=\"awayTeam\" id=\"awayTeam\" />\n" +
+//                            "            </div>\n" +
+//                            "            <div class=\"formInput\">\n" +
+//                            "              <label for=\"fixtureDate\">Fixture Date:</label>\n" +
+//                            "              <input type=\"date\" name=\"fixtureDate\" id=\"fixtureDate\" />\n" +
+//                            "            </div>\n" +
+//                            "          </div>\n" +
+//                            "          <input class=\"normalFormButton\" type=\"submit\" value=\"Post Fixture\" />\n" +
+//                            "        </form>\n" +
+//                            "      </div>\n" +
+                            "    </div>" );
 
             print.write(
                     "    </div>\n" +
