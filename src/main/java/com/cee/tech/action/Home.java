@@ -28,8 +28,8 @@ public class Home extends HttpServlet {
             //accessing the cookie
             Cookie[] cookies = req.getCookies();
 
-            for (Cookie myCookie: cookies){
-                if (myCookie.getName().equals("username")){
+            for (Cookie myCookie : cookies) {
+                if (myCookie.getName().equals("username")) {
                     accessCookie = myCookie.getValue();
                 }
 
@@ -44,67 +44,186 @@ public class Home extends HttpServlet {
                             "    <meta charset=\"UTF-8\">\n" +
                             "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
                             "    <title>Welcome Page</title>\n" +
-                            "    <style>\n" +
-                            "        body {\n" +
-                            "            background-color: white;\n" +
-                            "            color: rgb(1, 69, 171);\n" +
-                            "            text-align: center;\n" +
-                            "            margin-top: 20px;\n" +
-                            "        }\n" +
-                            "  ul.navbar {\n" +
-                            "      background-color: white;\n" +
-                            "      list-style-type: none;\n" +
+                            "</head>\n" +
+                            "<style>\n" +
+                            "      * {\n" +
                             "      margin: 0;\n" +
                             "      padding: 0;\n" +
-                            "      display: flex;\n" +
-                            "      justify-content: space-between;\n" +
+                            "      box-sizing: border-box;\n" +
+                            "    }\n" +
+                            "    body{\n" +
+                            "        width: 100%;\n" +
+                            "        font-family: \"Mona Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n" +
+                            "        font-size: 14px;\n" +
+                            "    }\n" +
+                            "    .navbarContainer{\n" +
+                            "        width: 83%;\n" +
+                            "        margin: auto;\n" +
+                            "       padding: 20px 0px;\n" +
+                            "    }\n" +
+                            "    .title{\n" +
+                            "        font-size: 1.2rem;\n" +
+                            "\n" +
+                            "    }\n" +
+                            "    .title a{\n" +
+                            "        color:  rgb(0, 53, 133);\n" +
+                            "        text-decoration: none;\n" +
+                            "        font-weight: 600;\n" +
+                            "    }\n" +
+                            "    .navClass{\n" +
+                            "        display: flex;\n" +
+                            "        justify-content: space-between;\n" +
+                            "        width: 100%;\n" +
+                            "        align-items: center;\n" +
+                            "    }\n" +
+                            "    .links{\n" +
+                            "        display: flex;\n" +
+                            "        gap: 40px;\n" +
+                            "        \n" +
+                            "    }\n" +
+                            "    .links,a{\n" +
+                            "        color: #272829;\n" +
+                            "        text-decoration: none;\n" +
+                            "        \n" +
+                            "    }\n" +
+                            "    .links a:hover{\n" +
+                            "        color:  rgb(0, 53, 133);\n" +
+                            "        \n" +
+                            "    }\n" +
+                            "    .contactButton{\n" +
+                            "        border:1px rgb(0, 53, 133) solid;\n" +
+                            "        padding: 8px 17px;\n" +
+                            "        border-radius: 25px;  \n" +
+                            "        color: rgb(0, 53, 133);      \n" +
+                            "    }\n" +
+                            "    .contactButton a{\n" +
+                            "        text-decoration: none;\n" +
+                            "        color: rgb(0, 53, 133);    \n" +
+                            "    }\n" +
+                            "    .contactButton a:hover{\n" +
+                            "        color: white;   \n" +
+                            "    }\n" +
+                            "    .contactButton:hover{\n" +
+                            "        /* border:none; */\n" +
+                            "        background-color: rgb(10, 79, 182) ;\n" +
+                            "        color: white;\n" +
+                            "        cursor: pointer;\n" +
+                            "    }\n" +
+                            ".mainContainer {\n" +
+                            "      width: 83%;\n" +
+                            "      margin: auto;\n" +
+                            "      padding-top: 10px;\n" +
+                            "      padding-bottom: 10px;\n" +
+                            "      display: flex;      \n" +
+                            "      justify-content: space-around;\n" +
+                            "      height: 83vh;\n" +
                             "      align-items: center;\n" +
+                            "      gap: 30px;\n" +
                             "    }\n" +
-                            "\n" +
-                            "    /* Style the list items (links) in the navbar */\n" +
-                            "    ul.navbar li {\n" +
-                            "      margin-right: 20px;\n" +
+                            "    .heroSection {\n" +
+                            "      width: 50%;\n" +
+                            "      display: flex;\n" +
+                            "      flex-direction: column;      \n" +
+                            "      gap: 20px;\n" +
                             "    }\n" +
-                            "\n" +
-                            "    /* Style the Eticket title */\n" +
-                            "    ul.navbar .title {\n" +
-                            "      color: blue;\n" +
+                            "    .sectionTitle {\n" +
+                            "      font-size: 2.7rem;\n" +
+                            "      font-weight: 600;\n" +
+                            "      letter-spacing: 2px;\n" +
+                            "      line-height: 4rem;\n" +
+                            "     \n" +
                             "    }\n" +
-                            "\n" +
-                            "    /* Style the outline button */\n" +
-                            "    ul.navbar .btn {\n" +
-                            "      border: 2px solid blue;\n" +
-                            "      padding: 5px 15px;\n" +
-                            "      color: blue;\n" +
-                            "      text-decoration: none;\n" +
-                            "      border-radius: 5px;\n" +
-                            "    }" +
-                            "        .welcome-message {\n" +
-                            "            font-size: 2rem;\n" +
-                            "        }\n" +
-                            "        .fixture{\n" +
-                            "            margin-top: 10px;\n" +
-                            "            text-align: center;\n" +
-                            "            font-size: 1rem;\n" +
-                            "        }\n" +
-                            "    </style>\n" +
-                            "</head>\n" +
+                            "    .summary {\n" +
+                            "      width: 70%;\n" +
+                            "      color: #272829;\n" +
+                            "      margin: 13px 0px;\n" +
+                            "  \n" +
+                            "    }\n" +
+                            "    .blueText {\n" +
+                            "      color: rgb(0, 53, 133);\n" +
+                            "    }\n" +
+                            "    .homeNormalButton{\n" +
+                            "        padding: 12px 24px;\n" +
+                            "        border-radius: 25px; \n" +
+                            "        border:none;\n" +
+                            "        background-color: rgb(10, 79, 182) ;\n" +
+                            "        color: white;\n" +
+                            "        cursor: pointer;\n" +
+                            "        text-decoration: none;\n" +
+                            "    }\n" +
+                            "    .homeOutlineButton{\n" +
+                            "        border:1px rgb(0, 53, 133) solid;\n" +
+                            "        padding: 10px 20px;\n" +
+                            "        border-radius: 25px;  \n" +
+                            "        color: rgb(0, 53, 133);  \n" +
+                            "        text-decoration: none;    \n" +
+                            "    }\n" +
+                            "    .homeOutlineButton:hover{\n" +
+                            "        /* border:none; */\n" +
+                            "        background-color: rgb(10, 79, 182) ;\n" +
+                            "        color: white;\n" +
+                            "        cursor: pointer;\n" +
+                            "    }\n" +
+                            "    .homeButtons{\n" +
+                            "        display: flex;\n" +
+                            "        gap: 20px;\n" +
+                            "        align-items: center;\n" +
+                            "    }\n" +
+                            "    .heroImage {\n" +
+                            "      width: 50%;\n" +
+                            "    }\n" +
+                            "    .imageContainer{\n" +
+                            "      width: 100%;\n" +
+                            "  \n" +
+                            "    }\n" +
+                            "    .bgImage{\n" +
+                            "      width: 100%;\n" +
+                            "    }"+
+                            "</style>" +
                             "<body>\n" +
-                            " <nav>\n" +
-                            "    <ul class=\"navbar\">\n" +
-                            "      <li class=\"title\">Eticket</li>\n" +
-                            "      <li><a href=\"./home\">Home</a></li>\n" +
-                            "      <li><a href=\"./tickets\">Ticket</a></li>\n" +
-                            "      <li><a href=\"./fixtures\">Fixtures</a></li>\n" +
-                            "      <li class=\"btn\"><a href=\"#\">Contact</a></li>\n" +
-                            "    </ul>\n" +
-                            "  </nav>" +
-                            "Welcome: " + httpSession.getAttribute("username") + "<br/> " +
-                            context.getInitParameter("AppName") + "<br/> " +
-                            " <a href=\"./tickets\"> Tickets </a> " +
-                            "    <div class=\"welcome-message\">\n" +
-                            "        Home Page\n" +
-                            "    </div>\n" +
+                            "  <div class=\"navbarContainer\" >\n" +
+                            "        <nav class=\"navClass\">\n" +
+                            "            <div class=\"title\">\n" +
+                            "                <a href=\"/\">Etciket</a>\n" +
+                            "            </div>\n" +
+                            "            <div class=\"links\" >\n" +
+                            "               <a href=\"./home\">HOME</a>\n" +
+                            "               <a href=\"./tickets\">TICKETS</a>\n" +
+                            "               <a href=\"./fixtures\">FIXTURES</a>\n" +
+                            "            </div>\n" +
+                            "            <a href=\"./logout\" class=\"contactButton\">\n" +
+                            "                LOGOUT\n" +
+                            "            </a>\n" +
+                            "        </nav>\n" +
+                            "    </div>" +
+
+                     "  <div class=\"mainContainer\">\n" +
+                            "      <div class=\"heroSection\">\n" +
+                            "        <div class=\"sectionTitle\">\n" +
+                            "          <p>\n" +
+                            "            Experience The <br />\n" +
+                            "            <span class=\"blueText\">Thrill of Live Sports </span> <br />\n" +
+                            "            Like Never Before\n" +
+                            "          </p>\n" +
+                            "        </div>\n" +
+                            "        <div>\n" +
+                            "          <p class=\"summary\">\n" +
+                            "            Experience the ultimate in live entertainment with our seamless\n" +
+                            "            ticketing system. Get ready to secure your spot at the heart of the\n" +
+                            "            action\n" +
+                            "          </p>\n" +
+                            "        </div>\n" +
+                            "        <div class=\"homeButtons\">\n" +
+                            "            <a href=\"./tickets\" class=\"homeOutlineButton\" >  My Tickets</a>\n" +
+                            "            <a href=\"./fixtures\" class=\"homeNormalButton\">Upcoming Fixtures</a>\n" +
+                            "        </div>\n" +
+                            "      </div>\n" +
+                            "      <div class=\"heroImage\">\n" +
+                            "        <div class=\"imageContainer\">\n" +
+                            "          <img class=\"bgImage\" src=\"./assets/stad.jpg\" alt=\"stadium\">\n" +
+                            "        </div>\n" +
+                            "      </div>\n" +
+                            "    </div>" +
                             "<form action=\"./fixtures\" method=\"POST\">\n" +
                             "  <label for=\"fixtureId\">Fixture id:</label><br>\n" +
                             "  <input type=\"text\" id=\"fixtureId\" name=\"fixtureId\" ><br>\n" +
@@ -117,12 +236,7 @@ public class Home extends HttpServlet {
                             "  <label for=\"fixtureDate\">Fixture Date:</label><br>\n" +
                             "  <input type=\"text\" id=\"fixtureDate\" name=\"fixtureDate\"><br><br>\n" +
                             "  <input type=\"submit\" value=\"Submit\">\n" +
-                            "</form> " +
-                            "<br><br> " +
-                            " <a href=\"./logout\"> Logout </a> " +
-                            "    <div class=\"fixture\">\n" +
-                            "        <h2>Upcoming fixtures</h2>\n");
-            print.write(fixtureBean.upcomingFixtures());
+                            "</form> " );
 
             print.write(
                     "    </div>\n" +

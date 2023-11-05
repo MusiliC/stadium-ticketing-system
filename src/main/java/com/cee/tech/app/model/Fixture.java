@@ -8,7 +8,7 @@ public class Fixture implements Serializable {
 
     private String fixtureId;
     private String fixtureTime;
-    private  String fixtureLocation;
+    private String fixtureLocation;
     private String homeTeam;
     private String awayTeam;
 
@@ -74,15 +74,41 @@ public class Fixture implements Serializable {
         this.fixtureLocation = fixtureLocation;
     }
 
+//  <div class="oneFixture">
+//          <div class="teams">
+//            <p>15:00 EAT</p>
+//    <p>MISC Kasarani</p>
+//          </div>
+//          <div class="teams">
+//    <p>Gor Mahia</p>
+//            <p>Tusker</p>
+//          </div>
+//          <div class="date">
+//            <p>12/03/2023</p>
+//          </div>
+//          <div class="ticket">
+//            <div class="outlineButton">Buy Ticket</div>
+//          </div>
+//        </div>
+
     public String tableRow() {
         StringBuilder tbBuilder = new StringBuilder();
-        tbBuilder.append("<tr>");
-        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureId())).append("</td>");
-        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getHomeTeam())).append("</td>");
-        tbBuilder.append("<td>").append(StringUtils.trimToEmpty( getAwayTeam())).append("</td>");
-        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureTime())).append("</td>");
-        tbBuilder.append("<td>").append(StringUtils.trimToEmpty( getFixtureDate())).append("</td>");
-        tbBuilder.append("</tr>");
+        tbBuilder.append("<div class=\"oneFixture\">");
+        tbBuilder.append("  <div class=\"teams\">");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureTime())).append("</p>");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureLocation())).append("</p>");
+        tbBuilder.append(" </div>");
+        tbBuilder.append("<div class=\"teams\">");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getHomeTeam())).append("</p>");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getAwayTeam())).append("</p>");
+        tbBuilder.append(" </div>");
+        tbBuilder.append("<div class=\"date\">");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureDate())).append("</td>");
+        tbBuilder.append(" </div>");
+        tbBuilder.append("<div class=\"ticket\">");
+        tbBuilder.append("  <div class=\"outlineButton\">Buy Ticket</div>");
+        tbBuilder.append("</div>");
+        tbBuilder.append("</div>");
         return tbBuilder.toString();
 
     }

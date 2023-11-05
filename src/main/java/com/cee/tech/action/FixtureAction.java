@@ -22,7 +22,7 @@ public class FixtureAction extends HttpServlet {
         HttpSession httpSession = req.getSession();
         Database database = Database.getDbInstance();
 
-        database.getFixtures().add(new Fixture(req.getParameter("fixtureId"), req.getParameter("homeTeam"), req.getParameter("awayTeam"), req.getParameter("fixtureTime"), req.getParameter("fixtureDate")));
+        database.getFixtures().add(new Fixture(req.getParameter("fixtureId"), req.getParameter("fixtureTime"), req.getParameter("fixtureLocation"), req.getParameter("homeTeam"), req.getParameter("awayTeam"), req.getParameter("fixtureDate")));
 
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
             ServletContext context = getServletContext();
@@ -32,78 +32,91 @@ public class FixtureAction extends HttpServlet {
             print.write(
                     "<!DOCTYPE html>\n" +
                             "<html lang=\"en\">\n" +
-                            "<head>\n" +
-                            "    <meta charset=\"UTF-8\">\n" +
-                            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-                            "    <title>Welcome Page</title>\n" +
-                            "    <style>\n" +
-                            "        body {\n" +
-                            "            background-color: white;\n" +
-                            "            color: rgb(1, 69, 171);\n" +
-                            "            text-align: center;\n" +
-                            "            margin-top: 20px;\n" +
-                            "        }\n" +
-                            "  ul.navbar {\n" +
-                            "      background-color: white;\n" +
-                            "      list-style-type: none;\n" +
+                            "  <head>\n" +
+                            "    <meta charset=\"UTF-8\" />\n" +
+                            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n" +
+                            "    <title>Document</title>\n" +
+                            "  </head>\n" +
+                            "  <style>\n" +
+                            "    * {\n" +
                             "      margin: 0;\n" +
                             "      padding: 0;\n" +
+                            "      box-sizing: border-box;\n" +
+                            "    }\n" +
+                            "    body {\n" +
+                            "      width: 100%;\n" +
+                            "      height: 90vh;\n" +
+                            "      font-family: \"Mona Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n" +
+                            "      font-size: 15px;\n" +
+                            "    }\n" +
+                            "    .outlineButton{\n" +
+                            "        border:1px rgb(0, 53, 133) solid;\n" +
+                            "        padding: 10px 20px;\n" +
+                            "        border-radius: 25px;  \n" +
+                            "        color: rgb(0, 53, 133);      \n" +
+                            "    }\n" +
+                            "    .outlineButton:hover{\n" +
+                            "        /* border:none; */\n" +
+                            "        background-color: rgb(10, 79, 182) ;\n" +
+                            "        color: white;\n" +
+                            "        cursor: pointer;\n" +
+                            "    }\n" +
+                            "  \n" +
+                            "    .topPart {\n" +
+                            "      height: 170px;\n" +
+                            "      background: rgb(28, 85, 172);\n" +
+                            "      margin-bottom: 30px;\n" +
+                            "      display: flex;\n" +
+                            "      align-items: center;\n" +
+                            "    }\n" +
+                            "    .topPartTitle{\n" +
+                            "        width: 70%;\n" +
+                            "        margin: auto;\n" +
+                            "    }\n" +
+                            "    .topPartTitle p{\n" +
+                            "        color: white;\n" +
+                            "        font-size: 2.5rem;\n" +
+                            "        font-weight: 600;\n" +
+                            "        font-style: italic;\n" +
+                            "    }\n" +
+                            "    .fixtureContainer {\n" +
+                            "      width: 70%;\n" +
+                            "      margin: auto;\n" +
+                            "    }\n" +
+                            "    .oneFixture {\n" +
                             "      display: flex;\n" +
                             "      justify-content: space-between;\n" +
                             "      align-items: center;\n" +
+                            "      padding: 18px 0px;\n" +
+                            "      color: #272829;\n" +
+                            "      border-bottom: 1px solid #7c7c7c;\n" +
                             "    }\n" +
-                            "\n" +
-                            "    /* Style the list items (links) in the navbar */\n" +
-                            "    ul.navbar li {\n" +
-                            "      margin-right: 20px;\n" +
+                            "    .oneFixture:hover {\n" +
+                            "      cursor: pointer;\n" +
+                            "      background-color: rgb(238, 238, 238);\n" +
+                            "      padding: 18px 5px;\n" +
+                            "      color: black;\n" +
                             "    }\n" +
-                            "\n" +
-                            "    /* Style the Eticket title */\n" +
-                            "    ul.navbar .title {\n" +
-                            "      color: blue;\n" +
+                            "    .teams {\n" +
+                            "      display: flex;\n" +
+                            "      flex-direction: column;\n" +
+                            "      gap: 7px;\n" +
                             "    }\n" +
-                            "\n" +
-                            "    /* Style the outline button */\n" +
-                            "    ul.navbar .btn {\n" +
-                            "      border: 2px solid blue;\n" +
-                            "      padding: 5px 15px;\n" +
-                            "      color: blue;\n" +
-                            "      text-decoration: none;\n" +
-                            "      border-radius: 5px;\n" +
-                            "    }" +
-                            "        .welcome-message {\n" +
-                            "            font-size: 2rem;\n" +
-                            "        }\n" +
-                            "        .fixture{\n" +
-                            "            margin-top: 10px;\n" +
-                            "            text-align: center;\n" +
-                            "            font-size: 1rem;\n" +
-                            "        }\n" +
-                            "    </style>\n" +
-                            "</head>\n" +
+                            "  </style>"+
                             "<body>\n" +
-                            " <nav>\n" +
-                            "    <ul class=\"navbar\">\n" +
-                            "      <li class=\"title\">Eticket</li>\n" +
-                            "      <li><a href=\"./home\">Home</a></li>\n" +
-                            "      <li><a href=\"./tickets\">Ticket</a></li>\n" +
-                            "      <li><a href=\"./fixtures\">Fixtures</a></li>\n" +
-                            "      <li class=\"btn\"><a href=\"#\">Contact</a></li>\n" +
-                            "    </ul>\n" +
-                            "  </nav>" +
-                            "Welcome: " + httpSession.getAttribute("username") + "<br/> " +
-                            context.getInitParameter("AppName") + "<br/> " +
-                            " <a href=\"./home\"> Home </a> " +
-                            "    <div class=\"welcome-message\">\n" +
-                            "        Tickets page\n" +
-                            "    </div>\n" +
-                            " <a href=\"./logout\"> Logout </a> " +
-                            "    <div class=\"fixture\">\n" +
-                            "        <h2>Upcoming fixtures</h2>\n");
-            print.write(fixtureBean.upcomingFixtures());
-
-            print.write(
-                    "    </div>\n" +
+                            " <div class=\"mainContainer\">\n" +
+                            "      <!-- top part -->\n" +
+                            "      <div class=\"topPart\">\n" +
+                            "        <div class=\"topPartTitle\">\n" +
+                            "          <p>Upcoming Fixtures</p>\n" +
+                            "        </div>\n" +
+                            "      </div>\n" +
+                            "      <!-- bottom part  -->\n" +
+                            "      <div class=\"fixtureContainer\">");
+                             print.write(fixtureBean.upcomingFixtures());
+                             print.write(
+                            " </div>\n" +
+                            "    </div>"+
                             "</body>\n" +
                             "</html>\n");
         }
