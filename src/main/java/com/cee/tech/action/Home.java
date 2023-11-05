@@ -7,10 +7,7 @@ import java.io.PrintWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 
 import com.cee.tech.app.bean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
@@ -26,6 +23,19 @@ public class Home extends HttpServlet {
             ServletContext context = getServletContext();
             FixtureBeanI fixtureBean = new FixtureBean();
             PrintWriter print = res.getWriter();
+
+            String accessCookie = null;
+            //accessing the cookie
+            Cookie[] cookies = req.getCookies();
+
+            for (Cookie myCookie: cookies){
+                if (myCookie.getName().equals("username")){
+                    accessCookie = myCookie.getValue();
+                }
+
+            }
+            System.out.println("********** " + accessCookie + "***************");
+
 
             print.write(
                     "<!DOCTYPE html>\n" +

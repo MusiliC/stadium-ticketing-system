@@ -7,19 +7,22 @@ import java.io.Serializable;
 public class Fixture implements Serializable {
 
     private String fixtureId;
+    private String fixtureTime;
+    private  String fixtureLocation;
     private String homeTeam;
     private String awayTeam;
-    private String fixtureTime;
+
     private String fixtureDate;
 
     public Fixture() {
     }
 
-    public Fixture(String fixtureId, String homeTeam, String awayTeam, String fixtureTime, String fixtureDate) {
+    public Fixture(String fixtureId, String fixtureTime, String fixtureLocation, String homeTeam, String awayTeam, String fixtureDate) {
         this.fixtureId = fixtureId;
+        this.fixtureTime = fixtureTime;
+        this.fixtureLocation = fixtureLocation;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.fixtureTime = fixtureTime;
         this.fixtureDate = fixtureDate;
     }
 
@@ -61,6 +64,14 @@ public class Fixture implements Serializable {
 
     public void setAwayTeam(String awayTeam) {
         this.awayTeam = awayTeam;
+    }
+
+    public String getFixtureLocation() {
+        return fixtureLocation;
+    }
+
+    public void setFixtureLocation(String fixtureLocation) {
+        this.fixtureLocation = fixtureLocation;
     }
 
     public String tableRow() {
