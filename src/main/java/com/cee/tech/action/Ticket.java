@@ -2,15 +2,13 @@ package com.cee.tech.action;
 
 import com.cee.tech.app.bean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
+import com.cee.tech.utils.CookieUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 @WebServlet("/tickets")
@@ -18,6 +16,19 @@ public class Ticket extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
+
+        Cookie userCookie = CookieUtils.getCookieByName(req, "username");
+        String accessCookie = null;
+        String firstLetter = null;
+
+        if (userCookie != null) {
+            accessCookie = userCookie.getValue();
+            firstLetter = accessCookie.substring(0, 1).toUpperCase();
+        } else {
+            System.out.println("Cookie not found");
+        }
+
+
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
             ServletContext context = getServletContext();
             FixtureBeanI fixtureBean = new FixtureBean();
@@ -94,6 +105,19 @@ public class Ticket extends HttpServlet {
                             "        color: white;\n" +
                             "        cursor: pointer;\n" +
                             "    }\n" +
+                            ".lastPart{\n" +
+                            "        display: flex;\n" +
+                            "        align-items: center;\n" +
+                            "        gap: 30px;\n" +
+                            "    }\n" +
+                            "    .profile{\n" +
+                            "        padding: 12px 15px;\n" +
+                            "        border-radius: 50%; \n" +
+                            "        border:none;\n" +
+                            "        background-color: rgb(10, 79, 182) ;\n" +
+                            "        color: white;\n" +
+                            "        font-weight: 600;\n" +
+                            "    }" +
                             "    .mainTicketContainer {\n" +
                             "      width: 83%;\n" +
                             "      margin: auto;\n" +
@@ -128,9 +152,12 @@ public class Ticket extends HttpServlet {
                             "               <a href=\"./tickets\">TICKETS</a>\n" +
                             "               <a href=\"./fixtures\">FIXTURES</a>\n" +
                             "            </div>\n" +
-                            "            <a href=\"./logout\" class=\"contactButton\">\n" +
-                            "                LOGOUT\n" +
-                            "            </a>\n" +
+                            " <div class=\"lastPart\">\n" +
+                            "          <p class=\"profile\" >  " +
+                            firstLetter +
+                            "</p>\n" +
+                            "          <a href=\"./logout\" class=\"contactButton\"> LOGOUT </a>\n" +
+                            "        </div>" +
                             "        </nav>\n" +
                             "    </div>" +
                           "    <div class=\"mainTicketContainer\">\n" +

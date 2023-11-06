@@ -2,11 +2,13 @@ package com.cee.tech.auth;
 
 import com.cee.tech.app.model.User;
 import com.cee.tech.database.Database;
+import com.cee.tech.utils.CustomLogger;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.logging.Level;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -32,7 +34,7 @@ public class Login extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-
+        CustomLogger logger = CustomLogger.getLoggerInstance();
 
         ServletContext context = getServletContext();
 
@@ -42,6 +44,7 @@ public class Login extends HttpServlet {
         Database database = Database.getDbInstance();
 
         System.out.println("What time was this db created: " + database.getDatabaseCreatedAt());
+        logger.log(Level.INFO, "What time was this db created: " + database.getDatabaseCreatedAt());
 
         for (User user : database.getUsers()) {
             if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {

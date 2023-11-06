@@ -2,6 +2,7 @@ package com.cee.tech.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
 
 
 import javax.servlet.ServletContext;
@@ -11,6 +12,8 @@ import javax.servlet.http.*;
 
 import com.cee.tech.app.bean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
+import com.cee.tech.utils.CookieUtils;
+import com.cee.tech.utils.CustomLogger;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -23,18 +26,21 @@ public class Home extends HttpServlet {
             ServletContext context = getServletContext();
             FixtureBeanI fixtureBean = new FixtureBean();
             PrintWriter print = res.getWriter();
+            CustomLogger logger = CustomLogger.getLoggerInstance();
 
+            Cookie userCookie = CookieUtils.getCookieByName(req, "username");
             String accessCookie = null;
-            //accessing the cookie
-            Cookie[] cookies = req.getCookies();
+            String firstLetter = null;
 
-            for (Cookie myCookie : cookies) {
-                if (myCookie.getName().equals("username")) {
-                    accessCookie = myCookie.getValue();
-                }
-
+            if (userCookie != null) {
+                accessCookie = userCookie.getValue();
+                firstLetter = accessCookie.substring(0, 1).toUpperCase();
+            } else {
+                System.out.println("Cookie not found");
             }
-            System.out.println("********** " + accessCookie + "***************");
+
+            //System.out.println("********** " + accessCookie + "***************");
+            logger.log(Level.INFO, "********** " + accessCookie + "***************");
 
 
             print.write(
@@ -109,6 +115,19 @@ public class Home extends HttpServlet {
                             "        color: white;\n" +
                             "        cursor: pointer;\n" +
                             "    }\n" +
+                            ".lastPart{\n" +
+                            "        display: flex;\n" +
+                            "        align-items: center;\n" +
+                            "        gap: 30px;\n" +
+                            "    }\n" +
+                            "    .profile{\n" +
+                            "        padding: 12px 15px;\n" +
+                            "        border-radius: 50%; \n" +
+                            "        border:none;\n" +
+                            "        background-color: rgb(10, 79, 182) ;\n" +
+                            "        color: white;\n" +
+                            "        font-weight: 600;\n" +
+                            "    }" +
                             ".mainContainer {\n" +
                             "      width: 83%;\n" +
                             "      margin: auto;\n" +
@@ -178,7 +197,7 @@ public class Home extends HttpServlet {
                             "    }\n" +
                             "    .bgImage{\n" +
                             "      width: 100%;\n" +
-                            "    }"+
+                            "    }" +
                             " .formMainContainer {\n" +
                             "      width: 83%;\n" +
                             "      margin: auto;\n" +
@@ -217,7 +236,7 @@ public class Home extends HttpServlet {
                             "    }\n" +
                             "    .formInput input:focus {\n" +
                             "      outline: none;\n" +
-                            "    }"+
+                            "    }" +
                             "</style>" +
                             "<body>\n" +
                             "  <div class=\"navbarContainer\" >\n" +
@@ -230,13 +249,16 @@ public class Home extends HttpServlet {
                             "               <a href=\"./tickets\">TICKETS</a>\n" +
                             "               <a href=\"./fixtures\">FIXTURES</a>\n" +
                             "            </div>\n" +
-                            "            <a href=\"./logout\" class=\"contactButton\">\n" +
-                            "                LOGOUT\n" +
-                            "            </a>\n" +
+                            " <div class=\"lastPart\">\n" +
+                            "          <p class=\"profile\" >  " +
+                                firstLetter +
+                            "</p>\n" +
+                            "          <a href=\"./logout\" class=\"contactButton\"> LOGOUT </a>\n" +
+                            "        </div>" +
                             "        </nav>\n" +
                             "    </div>" +
 
-                     "  <div class=\"mainContainer\">\n" +
+                            "  <div class=\"mainContainer\">\n" +
                             "      <div class=\"heroSection\">\n" +
                             "        <div class=\"sectionTitle\">\n" +
                             "          <p>\n" +
@@ -259,7 +281,7 @@ public class Home extends HttpServlet {
                             "      </div>\n" +
                             "      <div class=\"heroImage\">\n" +
                             "        <div class=\"imageContainer\">\n" +
-                            "          <img class=\"bgImage\" src=\"/assets/stad.jpg\" alt=\"stadium\">\n" +
+                            "          <img class=\"bgImage\" src=\"https://images.unsplash.com/photo-1522778526097-ce0a22ceb253?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\" alt=\"stadium\">\n" +
                             "        </div>\n" +
                             "      </div>\n" +
                             "    </div>" +
@@ -293,7 +315,7 @@ public class Home extends HttpServlet {
 //                            "          <input class=\"normalFormButton\" type=\"submit\" value=\"Post Fixture\" />\n" +
 //                            "        </form>\n" +
 //                            "      </div>\n" +
-                            "    </div>" );
+                            "    </div>");
 
             print.write(
                     "    </div>\n" +

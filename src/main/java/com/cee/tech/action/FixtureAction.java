@@ -4,15 +4,13 @@ import com.cee.tech.app.bean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.app.model.Fixture;
 import com.cee.tech.database.Database;
+import com.cee.tech.utils.CookieUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -85,6 +83,19 @@ public class FixtureAction extends HttpServlet {
                         "    .contactButton a:hover{\n" +
                         "        color: white;   \n" +
                         "    }\n" +
+                        ".lastPart{\n" +
+                        "        display: flex;\n" +
+                        "        align-items: center;\n" +
+                        "        gap: 30px;\n" +
+                        "    }\n" +
+                        "    .profile{\n" +
+                        "        padding: 12px 15px;\n" +
+                        "        border-radius: 50%; \n" +
+                        "        border:none;\n" +
+                        "        background-color: rgb(10, 79, 182) ;\n" +
+                        "        color: white;\n" +
+                        "        font-weight: 600;\n" +
+                        "    }" +
                         "    .contactButton:hover{\n" +
                         "        /* border:none; */\n" +
                         "        background-color: rgb(10, 79, 182) ;\n" +
@@ -153,6 +164,17 @@ public class FixtureAction extends HttpServlet {
         Database database = Database.getDbInstance();
         FixtureBeanI fixtureBean = new FixtureBean();
 
+        Cookie userCookie = CookieUtils.getCookieByName(req, "username");
+        String accessCookie = null;
+        String firstLetter = null;
+
+        if (userCookie != null) {
+            accessCookie = userCookie.getValue();
+            firstLetter = accessCookie.substring(0, 1).toUpperCase();
+        } else {
+            System.out.println("Cookie not found");
+        }
+
         if(StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))){
             PrintWriter print = res.getWriter();
             print.write("<!DOCTYPE html>\n" +
@@ -169,9 +191,12 @@ public class FixtureAction extends HttpServlet {
                     "               <a href=\"./tickets\">TICKETS</a>\n" +
                     "               <a href=\"./fixtures\">FIXTURES</a>\n" +
                     "            </div>\n" +
-                    "            <a href=\"./logout\" class=\"contactButton\">\n" +
-                    "                LOGOUT\n" +
-                    "            </a>\n" +
+                    " <div class=\"lastPart\">\n" +
+                    "          <p class=\"profile\" >  " +
+                    firstLetter +
+                    "</p>\n" +
+                    "          <a href=\"./logout\" class=\"contactButton\"> LOGOUT </a>\n" +
+                    "        </div>" +
                     "        </nav>\n" +
                     "    </div>" +
                     " <div class=\"mainContainer\">\n" +
@@ -199,6 +224,18 @@ public class FixtureAction extends HttpServlet {
         HttpSession httpSession = req.getSession();
         Database database = Database.getDbInstance();
 
+        Cookie userCookie = CookieUtils.getCookieByName(req, "username");
+        String accessCookie = null;
+        String firstLetter = null;
+
+        if (userCookie != null) {
+            accessCookie = userCookie.getValue();
+            firstLetter = accessCookie.substring(0, 1).toUpperCase();
+        } else {
+            System.out.println("Cookie not found");
+        }
+
+
         database.getFixtures().add(new Fixture("10", req.getParameter("fixtureTime"), req.getParameter("fixtureLocation"), req.getParameter("homeTeam"), req.getParameter("awayTeam"), req.getParameter("fixtureDate")));
 
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
@@ -220,9 +257,12 @@ public class FixtureAction extends HttpServlet {
                     "               <a href=\"./tickets\">TICKETS</a>\n" +
                     "               <a href=\"./fixtures\">FIXTURES</a>\n" +
                     "            </div>\n" +
-                    "            <a href=\"./logout\" class=\"contactButton\">\n" +
-                    "                LOGOUT\n" +
-                    "            </a>\n" +
+                    " <div class=\"lastPart\">\n" +
+                    "          <p class=\"profile\" >  " +
+                    firstLetter +
+                    "</p>\n" +
+                    "          <a href=\"./logout\" class=\"contactButton\"> LOGOUT </a>\n" +
+                    "        </div>" +
                     "        </nav>\n" +
                     "    </div>" +
                     " <div class=\"mainContainer\">\n" +
