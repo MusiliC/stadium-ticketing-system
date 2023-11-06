@@ -18,7 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 
 
 @WebServlet("/home")
-public class Home extends HttpServlet {
+public class HomeAction extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
@@ -285,36 +285,36 @@ public class Home extends HttpServlet {
                             "        </div>\n" +
                             "      </div>\n" +
                             "    </div>" +
-//                            " <div class=\"formMainContainer\">\n" +
-//                            "      <div class=\"createFixtureContainer\">\n" +
-//                            "        <p class=\"fixtureTitle\">Create Fixture</p>\n" +
-//                            "\n" +
-//                            "        <form action=\"./fixtures\" method=\"post\">\n" +
-//                            "          <div class=\"formContainer\">\n" +
-//                            "            <div class=\"formInput\">\n" +
-//                            "              <label for=\"fixtureTime\">Fixture Time:</label>\n" +
-//                            "              <input type=\"text\" name=\"fixtureTime\" id=\"fixtureTime\" />\n" +
-//                            "            </div>\n" +
-//                            "            <div class=\"formInput\">\n" +
-//                            "              <label for=\"fixtureLocation\">Location:</label>\n" +
-//                            "              <input type=\"text\" name=\"fixtureLocation\" id=\"fixtureLocation\" />\n" +
-//                            "            </div>\n" +
-//                            "            <div class=\"formInput\">\n" +
-//                            "              <label for=\"homeTeam\">Home Team:</label>\n" +
-//                            "              <input type=\"text\" name=\"homeTeam\" id=\"homeTeam\" />\n" +
-//                            "            </div>\n" +
-//                            "            <div class=\"formInput\">\n" +
-//                            "              <label for=\"awayTeam\">Away Team:</label>\n" +
-//                            "              <input type=\"text\" name=\"awayTeam\" id=\"awayTeam\" />\n" +
-//                            "            </div>\n" +
-//                            "            <div class=\"formInput\">\n" +
-//                            "              <label for=\"fixtureDate\">Fixture Date:</label>\n" +
-//                            "              <input type=\"date\" name=\"fixtureDate\" id=\"fixtureDate\" />\n" +
-//                            "            </div>\n" +
-//                            "          </div>\n" +
-//                            "          <input class=\"normalFormButton\" type=\"submit\" value=\"Post Fixture\" />\n" +
-//                            "        </form>\n" +
-//                            "      </div>\n" +
+                            " <div class=\"formMainContainer\">\n" +
+                            "      <div class=\"createFixtureContainer\">\n" +
+                            "        <p class=\"fixtureTitle\">Create Fixture</p>\n" +
+                            "\n" +
+                            "        <form action=\"./fixtures\" method=\"post\">\n" +
+                            "          <div class=\"formContainer\">\n" +
+                            "            <div class=\"formInput\">\n" +
+                            "              <label for=\"fixtureTime\">Fixture Time:</label>\n" +
+                            "              <input type=\"text\" name=\"fixtureTime\" id=\"fixtureTime\" />\n" +
+                            "            </div>\n" +
+                            "            <div class=\"formInput\">\n" +
+                            "              <label for=\"fixtureLocation\">Location:</label>\n" +
+                            "              <input type=\"text\" name=\"fixtureLocation\" id=\"fixtureLocation\" />\n" +
+                            "            </div>\n" +
+                            "            <div class=\"formInput\">\n" +
+                            "              <label for=\"homeTeam\">Home Team:</label>\n" +
+                            "              <input type=\"text\" name=\"homeTeam\" id=\"homeTeam\" />\n" +
+                            "            </div>\n" +
+                            "            <div class=\"formInput\">\n" +
+                            "              <label for=\"awayTeam\">Away Team:</label>\n" +
+                            "              <input type=\"text\" name=\"awayTeam\" id=\"awayTeam\" />\n" +
+                            "            </div>\n" +
+                            "            <div class=\"formInput\">\n" +
+                            "              <label for=\"fixtureDate\">Fixture Date:</label>\n" +
+                            "              <input type=\"date\" name=\"fixtureDate\" id=\"fixtureDate\" />\n" +
+                            "            </div>\n" +
+                            "          </div>\n" +
+                            "          <input class=\"normalFormButton\" type=\"submit\" value=\"Post Fixture\" />\n" +
+                            "        </form>\n" +
+                            "      </div>\n" +
                             "    </div>");
 
             print.write(
