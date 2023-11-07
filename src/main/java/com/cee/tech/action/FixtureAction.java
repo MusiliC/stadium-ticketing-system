@@ -4,16 +4,20 @@ import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.app.model.Fixture;
 import com.cee.tech.database.Database;
 import com.cee.tech.utils.CookieUtils;
+import org.apache.commons.beanutils.BeanUtils;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 
 @WebServlet("/fixtures")
-public class FixtureAction extends HttpServlet {
+public class FixtureAction extends BaseActionClass {
 
+    private  Fixture fixture = new Fixture();
     public String displayNavAndFixtures(){
         return (
                 "  <head>\n" +
@@ -230,8 +234,8 @@ public class FixtureAction extends HttpServlet {
             System.out.println("Cookie not found");
         }
 
-
-        database.getFixtures().add(new Fixture("10", req.getParameter("fixtureTime"), req.getParameter("fixtureLocation"), req.getParameter("homeTeam"), req.getParameter("awayTeam"), req.getParameter("fixtureDate")));
+        serializeForm(fixture, req.getParameterMap());
+        database.getFixtures().add(fixture);
 
 
             ServletContext context = getServletContext();

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
 
 @WebFilter("/*")
 public class AuthFilter implements Filter {
@@ -39,8 +41,9 @@ public class AuthFilter implements Filter {
                 response.getWriter().flush();
             }
         }else {
-            if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId")))
-                chain.doFilter(request, response);
+            if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))){
+                httpResponse.addHeader("AuthTime", DateFormat.getDateTimeInstance().format(new Date()));
+                chain.doFilter(request, response);}
             else{
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
                 response.getWriter().flush();
