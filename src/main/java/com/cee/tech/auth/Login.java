@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.logging.Level;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -50,22 +47,21 @@ public class Login extends HttpServlet {
             if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                 HttpSession httpSession = req.getSession(true);
                 httpSession.setAttribute("LoginId", new Date().getTime() + "");
-                //implementing cookies
+                // implementing cookies
                 Cookie newCookie = new Cookie("username", username);
                 res.addCookie(newCookie);
-                //sending data -> another servlet
+                // sending data -> another servlet
                 httpSession.setAttribute("username", username);
                 res.sendRedirect("./home");
             }
         }
 
-        //getInitParams - accessing servlet config
-        //getParams - getting client request data
-        //context(initialized servletContext) - context.getInitParams - servlet context
+        // getInitParams - accessing servlet config
+        // getParams - getting client request data
+        // context(initialized servletContext) - context.getInitParams - servlet context
         PrintWriter print = res.getWriter();
 
         print.write("<html><body>Invalid credentials! <a href=\".\"> Login again </a></body></html>");
     }
-
 
 }

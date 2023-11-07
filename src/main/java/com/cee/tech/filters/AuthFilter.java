@@ -20,7 +20,8 @@ public class AuthFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpSession httpSession = httpRequest.getSession();
@@ -30,24 +31,25 @@ public class AuthFilter implements Filter {
         System.out.println("Context path: " + httpRequest.getContextPath());
         System.out.println("Context URI: " + httpRequest.getRequestURI());
 
-        if(httpSession.isNew()){
+        if (httpSession.isNew()) {
             httpSession.invalidate();
 
-
-            if(servletPath.equals("/login")  || servletPath.equals("/index.html") || servletPath.equals("/register"))
+            if (servletPath.equals("/login") || servletPath.equals("/index.html") || servletPath.equals("/register")
+                    || servletPath.equals("/user"))
                 chain.doFilter(request, response);
-            else{
+            else {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
                 response.getWriter().flush();
             }
-        }else {
-            if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))){
+        } else {
+            if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
                 httpResponse.addHeader("AuthTime", DateFormat.getDateTimeInstance().format(new Date()));
-                chain.doFilter(request, response);}
-            else{
+                chain.doFilter(request, response);
+            } else {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
                 response.getWriter().flush();
-        }}
+            }
+        }
     }
 
     @Override

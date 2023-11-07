@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-
 @WebServlet("/user")
 public class UserAction extends HttpServlet {
 

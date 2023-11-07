@@ -7,18 +7,32 @@ import java.io.Serializable;
 public class Fixture implements Serializable {
 
     private String fixtureId;
+    private String fixtureType;
     private String fixtureTime;
     private String fixtureLocation;
     private String homeTeam;
     private String awayTeam;
-
     private String fixtureDate;
 
-    public Fixture() {
+
+    public String getFixtureType() {
+        return fixtureType;
     }
 
-    public Fixture(String fixtureId, String fixtureTime, String fixtureLocation, String homeTeam, String awayTeam, String fixtureDate) {
+
+
+    public Fixture(String fixtureType, String fixtureTime, String fixtureLocation, String homeTeam, String awayTeam, String fixtureDate) {
+        this.fixtureType = fixtureType;
+        this.fixtureTime = fixtureTime;
+        this.fixtureLocation = fixtureLocation;
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+        this.fixtureDate = fixtureDate;
+    }
+
+    public Fixture(String fixtureId, String fixtureType, String fixtureTime, String fixtureLocation, String homeTeam, String awayTeam, String fixtureDate) {
         this.fixtureId = fixtureId;
+        this.fixtureType = fixtureType;
         this.fixtureTime = fixtureTime;
         this.fixtureLocation = fixtureLocation;
         this.homeTeam = homeTeam;
@@ -73,6 +87,12 @@ public class Fixture implements Serializable {
     public void setFixtureLocation(String fixtureLocation) {
         this.fixtureLocation = fixtureLocation;
     }
+    public void setFixtureType(String fixtureType) {
+        this.fixtureType = fixtureType;
+    }
+
+    public Fixture() {
+    }
 
 //  <div class="oneFixture">
 //          <div class="teams">
@@ -94,6 +114,9 @@ public class Fixture implements Serializable {
     public String tableRow() {
         StringBuilder tbBuilder = new StringBuilder();
         tbBuilder.append("<div class=\"oneFixture\">");
+        tbBuilder.append("<div class=\"date\">");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureType())).append("</td>");
+        tbBuilder.append(" </div>");
         tbBuilder.append("  <div class=\"teams\">");
         tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureTime())).append("</p>");
         tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureLocation())).append("</p>");

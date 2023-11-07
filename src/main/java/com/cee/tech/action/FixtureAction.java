@@ -124,7 +124,7 @@ public class FixtureAction extends BaseActionClass {
                         "      align-items: center;\n" +
                         "    }\n" +
                         "    .topPartTitle{\n" +
-                        "        width: 70%;\n" +
+                        "        width: 83%;\n" +
                         "        margin: auto;\n" +
                         "    }\n" +
                         "    .topPartTitle p{\n" +
@@ -134,7 +134,7 @@ public class FixtureAction extends BaseActionClass {
                         "        font-style: italic;\n" +
                         "    }\n" +
                         "    .fixtureContainer {\n" +
-                        "      width: 70%;\n" +
+                        "      width: 83%;\n" +
                         "      margin: auto;\n" +
                         "    }\n" +
                         "    .oneFixture {\n" +

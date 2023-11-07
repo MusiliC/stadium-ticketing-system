@@ -229,6 +229,14 @@ public class HomeAction extends HttpServlet {
                             "    .formInput input:focus {\n" +
                             "      outline: none;\n" +
                             "    }" +
+                            " .fixtureStyling{\n" +
+                            "      padding: 10px;\n" +
+                            "      border-radius: 3px;\n" +
+                            "      border: 1px solid lightgray;\n" +
+                            "    }\n" +
+                            "    .fixtureStyling:focus{\n" +
+                            "      outline: none;\n" +
+                            "    }"+
                             "</style>" +
                             "<body>\n" +
                             "  <div class=\"navbarContainer\" >\n" +
@@ -285,7 +293,7 @@ public class HomeAction extends HttpServlet {
                             "          <div class=\"formContainer\">\n" +
                             "            <div class=\"formInput\">\n" +
                             "              <label for=\"fixtureTime\">Fixture Time:</label>\n" +
-                            "              <input type=\"text\" name=\"fixtureTime\" id=\"fixtureTime\" />\n" +
+                            "              <input type=\"time\" name=\"fixtureTime\" id=\"fixtureTime\" />\n" +
                             "            </div>\n" +
                             "            <div class=\"formInput\">\n" +
                             "              <label for=\"fixtureLocation\">Location:</label>\n" +
@@ -303,6 +311,16 @@ public class HomeAction extends HttpServlet {
                             "              <label for=\"fixtureDate\">Fixture Date:</label>\n" +
                             "              <input type=\"date\" name=\"fixtureDate\" id=\"fixtureDate\" />\n" +
                             "            </div>\n" +
+                            "  <div class=\"formInput\">\n" +
+                            "              <label for=\"fixtureType\">Fixture Type:</label>\n" +
+                            "              <select name=\"fixtureType\" id=\"fixtureType\" class=\"fixtureStyling\">\n" +
+                            "                <option value=\"\" selected disabled hidden>Choose fixture type</option>\n" +
+                            "                <option value=\"Kenya Premier League\">Kenya Premier League</option>\n" +
+                            "                <option value=\"Mozzart Cup\">Mozzart Cup</option>\n" +
+                            "                <option value=\"CAF Champions League\">CAF Champions League</option>\n" +
+                            "                <option value=\"CAF confederation\">CAF confederation</option>\n" +
+                            "              </select>\n" +
+                            "            </div>"+
                             "          </div>\n" +
                             "          <input class=\"normalFormButton\" type=\"submit\" value=\"Post Fixture\" />\n" +
                             "        </form>\n" +

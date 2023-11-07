@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 
 @WebServlet("/register")
 public class RegisterUser extends HttpServlet {
-    public  void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         PrintWriter print = res.getWriter();
         print.write("<!DOCTYPE html>\n" +
                 "<html>\n" +
