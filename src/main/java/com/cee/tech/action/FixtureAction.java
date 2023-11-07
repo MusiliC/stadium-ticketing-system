@@ -1,12 +1,9 @@
 package com.cee.tech.action;
-
 import com.cee.tech.app.bean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.app.model.Fixture;
 import com.cee.tech.database.Database;
 import com.cee.tech.utils.CookieUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -175,7 +172,7 @@ public class FixtureAction extends HttpServlet {
             System.out.println("Cookie not found");
         }
 
-        if(StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))){
+
             PrintWriter print = res.getWriter();
             print.write("<!DOCTYPE html>\n" +
                     "<html lang=\"en\">" +
@@ -216,9 +213,7 @@ public class FixtureAction extends HttpServlet {
                     //body
                     "</html>"
         );
-        }else{
-            res.sendRedirect("./");
-        }
+
     }
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
@@ -238,7 +233,7 @@ public class FixtureAction extends HttpServlet {
 
         database.getFixtures().add(new Fixture("10", req.getParameter("fixtureTime"), req.getParameter("fixtureLocation"), req.getParameter("homeTeam"), req.getParameter("awayTeam"), req.getParameter("fixtureDate")));
 
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
+
             ServletContext context = getServletContext();
             FixtureBeanI fixtureBean = new FixtureBean();
             PrintWriter print = res.getWriter();
@@ -284,4 +279,4 @@ public class FixtureAction extends HttpServlet {
             );
 
     }
-}}
+}

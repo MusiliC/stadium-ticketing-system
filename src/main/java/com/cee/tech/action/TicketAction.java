@@ -1,11 +1,5 @@
 package com.cee.tech.action;
-
-import com.cee.tech.app.bean.FixtureBean;
-import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.utils.CookieUtils;
-import org.apache.commons.lang3.StringUtils;
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -15,8 +9,7 @@ import java.io.PrintWriter;
 public class TicketAction extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        HttpSession httpSession = req.getSession();
-
+     
         Cookie userCookie = CookieUtils.getCookieByName(req, "username");
         String accessCookie = null;
         String firstLetter = null;
@@ -29,9 +22,6 @@ public class TicketAction extends HttpServlet {
         }
 
 
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
-            ServletContext context = getServletContext();
-            FixtureBeanI fixtureBean = new FixtureBean();
             PrintWriter print = res.getWriter();
 
             print.write(
@@ -171,8 +161,7 @@ public class TicketAction extends HttpServlet {
                     "    </div>\n" +
                             "</body>\n" +
                             "</html>\n");
-        } else
-            res.sendRedirect("./");
+      
     }
 
 

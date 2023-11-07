@@ -4,27 +4,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
-import com.cee.tech.app.bean.FixtureBean;
-import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.utils.CookieUtils;
 import com.cee.tech.utils.CustomLogger;
-import org.apache.commons.lang3.StringUtils;
+
 
 
 @WebServlet("/home")
 public class HomeAction extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        HttpSession httpSession = req.getSession();
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
-            ServletContext context = getServletContext();
-            FixtureBeanI fixtureBean = new FixtureBean();
+    
             PrintWriter print = res.getWriter();
             CustomLogger logger = CustomLogger.getLoggerInstance();
 
@@ -321,8 +313,7 @@ public class HomeAction extends HttpServlet {
                     "    </div>\n" +
                             "</body>\n" +
                             "</html>\n");
-        } else
-            res.sendRedirect("./");
+       
     }
 
 

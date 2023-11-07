@@ -56,7 +56,6 @@ public class Login extends HttpServlet {
                 //sending data -> another servlet
                 httpSession.setAttribute("username", username);
                 res.sendRedirect("./home");
-                // res.sendRedirect("./app/home.html");
             }
         }
 
