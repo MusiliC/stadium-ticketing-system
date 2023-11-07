@@ -40,7 +40,7 @@ public class FixtureAction extends BaseActionClass {
                         "    .navbarContainer{\n" +
                         "        width: 83%;\n" +
                         "        margin: auto;\n" +
-                        "       padding: 20px 0px;\n" +
+                        "       padding: 30px 0px;\n" +
                         "    }\n" +
                         "    .title{\n" +
                         "        font-size: 1.2rem;\n" +
@@ -103,6 +103,10 @@ public class FixtureAction extends BaseActionClass {
                         "        color: white;\n" +
                         "        cursor: pointer;\n" +
                         "    }\n" +
+                        "    .fixtureContainer {\n" +
+                        "      width: 83%;\n" +
+                        "      margin: auto;\n" +
+                        "    }\n" +
                         "    .outlineTicketButton{\n" +
                         "        border:1px rgb(0, 53, 133) solid;\n" +
                         "        padding: 10px 20px;\n" +
@@ -117,7 +121,7 @@ public class FixtureAction extends BaseActionClass {
                         "    }\n" +
                         "  \n" +
                         "    .topPart {\n" +
-                        "      height: 170px;\n" +
+                        "      height: 200px;\n" +
                         "      background: rgb(28, 85, 172);\n" +
                         "      margin-bottom: 30px;\n" +
                         "      display: flex;\n" +
@@ -133,10 +137,7 @@ public class FixtureAction extends BaseActionClass {
                         "        font-weight: 600;\n" +
                         "        font-style: italic;\n" +
                         "    }\n" +
-                        "    .fixtureContainer {\n" +
-                        "      width: 83%;\n" +
-                        "      margin: auto;\n" +
-                        "    }\n" +
+
                         "    .oneFixture {\n" +
                         "      display: flex;\n" +
                         "      justify-content: space-between;\n" +
@@ -156,6 +157,12 @@ public class FixtureAction extends BaseActionClass {
                         "      flex-direction: column;\n" +
                         "      gap: 7px;\n" +
                         "    }\n" +
+                        " .fixture{\n" +
+                        "     width: 200px;     \n" +
+                        "    }\n" +
+                        "     .timeLocation, .teams{     \n" +
+                        "      width: 150px;\n" +
+                        "     }"+
                         "  </style>"
                 );
     };

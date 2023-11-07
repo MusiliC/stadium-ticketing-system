@@ -114,10 +114,10 @@ public class Fixture implements Serializable {
     public String tableRow() {
         StringBuilder tbBuilder = new StringBuilder();
         tbBuilder.append("<div class=\"oneFixture\">");
-        tbBuilder.append("<div class=\"date\">");
+        tbBuilder.append("<div class=\"fixture\">");
         tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureType())).append("</td>");
         tbBuilder.append(" </div>");
-        tbBuilder.append("  <div class=\"teams\">");
+        tbBuilder.append("  <div class=\"timeLocation\">");
         tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureTime())).append("</p>");
         tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureLocation())).append("</p>");
         tbBuilder.append(" </div>");

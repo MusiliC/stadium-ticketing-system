@@ -45,7 +45,7 @@ public class TicketAction extends HttpServlet {
                             " .navbarContainer{\n" +
                             "        width: 83%;\n" +
                             "        margin: auto;\n" +
-                            "       padding: 20px 0px;\n" +
+                            "       padding: 30px 0px;\n" +
                             "    }\n" +
                             "    .title{\n" +
                             "        font-size: 1.2rem;\n" +

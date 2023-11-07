@@ -21,6 +21,10 @@ public class RegisterUser extends HttpServlet {
                 "      body {\n" +
                 "        font-family: Arial, sans-serif;\n" +
                 "        text-align: center;\n" +
+                "        height:90vh;\n" +
+                "        display: flex;\n" +
+                "        align-items: center;\n" +
+                "        justify-content: center;" +
                 "      }\n" +
                 "\n" +
                 "      .login-container {\n" +
@@ -64,11 +68,22 @@ public class RegisterUser extends HttpServlet {
                 "        border-radius: 10px;\n" +
                 "        cursor: pointer;\n" +
                 "      }\n" +
+                ".regLink{\n" +
+                "         display: flex;\n" +
+                "         align-items: center;\n" +
+                "          justify-content: space-between;\n" +
+                "          padding: 15px 0px;\n" +
+                "        }\n" +
+                "      .regLink a{\n" +
+                "        text-decoration: none;\n" +
+                "        color: rgb(10, 79, 182);\n" +
+                "        font-weight: 600;\n" +
+                "    }" +
                 "    </style>\n" +
                 "  </head>\n" +
                 "  <body>\n" +
                 "    <div class=\"login-container\">\n" +
-                "    <a href=\"./\">Back to login</a>" +
+
                 "<h3>Register User</h3>\n" +
                 "      <form action=\"./user\" method=\"post\">\n" +
                 "        <label for=\"username\">Username:</label>\n" +
@@ -80,8 +95,11 @@ public class RegisterUser extends HttpServlet {
                 "        <label >Confirm Password:</label>\n" +
                 "        <input type=\"password\" name=\"confirmPassword\" required>\n" +
                 "\n" +
-                "        <input type=\"submit\"  />\n" +
-                "\n" +
+                "        <div class=\"regLink\">\n" +
+                "            <input type=\"submit\"/>\n" +
+                "            <div> <a href=\"./\">Back to login</a></div>\n" +
+                "        </div>" +
+
                 "      </form>\n" +
                 "    </div>\n" +
                 "  </body>\n" +
