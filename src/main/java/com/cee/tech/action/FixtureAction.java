@@ -4,6 +4,7 @@ import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.app.model.Fixture;
 import com.cee.tech.database.Database;
 import com.cee.tech.utils.CookieUtils;
+import com.cee.tech.view.html.AppPage;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletContext;
@@ -182,7 +183,6 @@ public class FixtureAction extends BaseActionClass {
         } else {
             System.out.println("Cookie not found");
         }
-
 
             PrintWriter print = res.getWriter();
             print.write("<!DOCTYPE html>\n" +
