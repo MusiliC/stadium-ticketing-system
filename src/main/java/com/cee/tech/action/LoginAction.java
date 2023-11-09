@@ -1,5 +1,7 @@
-package com.cee.tech.auth;
+package com.cee.tech.action;
 
+import com.cee.tech.app.bean.AuthBean;
+import com.cee.tech.app.bean.AuthBeanI;
 import com.cee.tech.app.model.User;
 import com.cee.tech.database.Database;
 import com.cee.tech.utils.CustomLogger;
@@ -19,8 +21,9 @@ import javax.servlet.http.*;
         @WebInitParam(name = "username", value = "Musili"),
         @WebInitParam(name = "password", value = "Admin123")
 })
-public class Login extends HttpServlet {
+public class LoginAction extends BaseActionClass {
 
+    AuthBeanI authBean = new AuthBean();
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId")))
@@ -33,18 +36,19 @@ public class Login extends HttpServlet {
 
         CustomLogger logger = CustomLogger.getLoggerInstance();
 
-        ServletContext context = getServletContext();
+        User loginUser = new User();
+        serializeForm(loginUser, req.getParameterMap());
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        Database database = Database.getDbInstance();
+        User userDetails = authBean.authenticateUser(loginUser);
 
-        System.out.println("What time was this db created: " + database.getDatabaseCreatedAt());
-        logger.log(Level.INFO, "What time was this db created: " + database.getDatabaseCreatedAt());
+        // System.out.println("What time was this db created: " + database.getDatabaseCreatedAt());
+        // logger.log(Level.INFO, "What time was this db created: " + database.getDatabaseCreatedAt());
 
-        for (User user : database.getUsers()) {
-            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+
+            if (userDetails !=null) {
                 HttpSession httpSession = req.getSession(true);
                 httpSession.setAttribute("LoginId", new Date().getTime() + "");
                 // implementing cookies
@@ -53,7 +57,7 @@ public class Login extends HttpServlet {
                 // sending data -> another servlet
                 httpSession.setAttribute("username", username);
                 res.sendRedirect("./home");
-            }
+
         }
 
         // getInitParams - accessing servlet config

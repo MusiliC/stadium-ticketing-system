@@ -7,9 +7,12 @@ import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
+import com.cee.tech.app.model.Fixture;
 import com.cee.tech.utils.CookieUtils;
 import com.cee.tech.utils.CustomLogger;
 import com.cee.tech.view.html.AppPage;
+import com.cee.tech.view.html.HtmlComponents;
 
 
 @WebServlet("/home")
@@ -64,41 +67,8 @@ public class HomeAction extends HttpServlet {
                     "      <div class=\"createFixtureContainer\">\n" +
                     "        <p class=\"fixtureTitle\">Create Fixture</p>\n" +
                     "\n" +
-                    "        <form action=\"./fixtures\" method=\"post\">\n" +
-                    "          <div class=\"formContainer\">\n" +
-                    "            <div class=\"formInput\">\n" +
-                    "              <label for=\"fixtureTime\">Fixture Time:</label>\n" +
-                    "              <input type=\"time\" name=\"fixtureTime\" id=\"fixtureTime\" />\n" +
-                    "            </div>\n" +
-                    "            <div class=\"formInput\">\n" +
-                    "              <label for=\"fixtureLocation\">Location:</label>\n" +
-                    "              <input type=\"text\" name=\"fixtureLocation\" id=\"fixtureLocation\" />\n" +
-                    "            </div>\n" +
-                    "            <div class=\"formInput\">\n" +
-                    "              <label for=\"homeTeam\">Home Team:</label>\n" +
-                    "              <input type=\"text\" name=\"homeTeam\" id=\"homeTeam\" />\n" +
-                    "            </div>\n" +
-                    "            <div class=\"formInput\">\n" +
-                    "              <label for=\"awayTeam\">Away Team:</label>\n" +
-                    "              <input type=\"text\" name=\"awayTeam\" id=\"awayTeam\" />\n" +
-                    "            </div>\n" +
-                    "            <div class=\"formInput\">\n" +
-                    "              <label for=\"fixtureDate\">Fixture Date:</label>\n" +
-                    "              <input type=\"date\" name=\"fixtureDate\" id=\"fixtureDate\" />\n" +
-                    "            </div>\n" +
-                    "  <div class=\"formInput\">\n" +
-                    "              <label for=\"fixtureType\">Fixture Type:</label>\n" +
-                    "              <select name=\"fixtureType\" id=\"fixtureType\" class=\"fixtureStyling\">\n" +
-                    "                <option value=\"\" selected disabled hidden>Choose fixture type</option>\n" +
-                    "                <option value=\"Kenya Premier League\">Kenya Premier League</option>\n" +
-                    "                <option value=\"Mozzart Cup\">Mozzart Cup</option>\n" +
-                    "                <option value=\"CAF Champions League\">CAF Champions League</option>\n" +
-                    "                <option value=\"CAF confederation\">CAF confederation</option>\n" +
-                    "              </select>\n" +
-                    "            </div>"+
-                    "          </div>\n" +
-                    "          <input class=\"normalFormButton\" type=\"submit\" value=\"Post Fixture\" />\n" +
-                    "        </form>\n" +
+                    
+                    HtmlComponents.form(new Fixture()) +
                     "      </div>\n" +
                     "    </div>");
     }

@@ -1,5 +1,7 @@
 package com.cee.tech.action;
 
+import com.cee.tech.app.bean.UserBean;
+import com.cee.tech.app.bean.UserBeanI;
 import com.cee.tech.app.model.User;
 import com.cee.tech.database.Database;
 import javax.servlet.ServletException;
@@ -11,18 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/user")
-public class UserAction extends HttpServlet {
+public class UserAction extends BaseActionClass {
+
+    UserBeanI userBean = new UserBean();
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
         Database database = Database.getDbInstance();
 
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String confirmPassword = req.getParameter("confirmPassword");
+        User registerUser = new User();
+        serializeForm(registerUser, req.getParameterMap());
 
-        if (password.equals(confirmPassword))
-            database.getUsers().add(new User(100L, username, password));
+        userBean.registerUser(registerUser);
         res.sendRedirect("./");
 
     }

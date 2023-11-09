@@ -9,7 +9,7 @@ public class Navbar implements Menu, Serializable {
         navbar = "  <div class=\"navbarContainer\" >\n" +
                 "        <nav class=\"navClass\">\n" +
                 "            <div class=\"title\">\n" +
-                "                <a href=\"/\">Etciket</a>\n" +
+                "                <a href=\"./home\">Etciket</a>\n" +
                 "            </div>\n" +
                 "            <div class=\"links\" >\n" +
                 "               <a href=\"./home\">HOME</a>\n" +

@@ -199,31 +199,12 @@ public class AppCss implements Serializable {
             "    .fixtureStyling:focus{\n" +
             "      outline: none;\n" +
             "    }"+
-            "    .mainTicketContainer {\n" +
+
+            "  .fixtureContainer {\n" +
             "      width: 83%;\n" +
             "      margin: auto;\n" +
             "      padding-top: 10px;\n" +
-            "      padding-bottom: 10px; \n" +
-            "      display: flex;\n" +
-            "      justify-content: center;\n" +
-            "      align-items: center;\n" +
-            "      height: 70vh;\n" +
-            "    }\n" +
-            "    .fixtureCard{\n" +
-            "        background-color: rgb(0, 53, 133) ;\n" +
-            "        color: white;\n" +
-            "        padding: 100px;\n" +
-            "        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);\n" +
-            "    }\n" +
-            "    .fixtureCard p{\n" +
-            "        font-size: 2rem;\n" +
-            "        font-weight: 600;\n" +
-            "        margin: 5px 0px;\n" +
-            "        text-align: start;\n" +
-            //fixture styling
-            "    .fixtureContainer {\n" +
-            "      width: 83%;\n" +
-            "      margin: auto;\n" +
+            "      padding-bottom: 10px;\n" +
             "    }\n" +
             "    .outlineTicketButton{\n" +
             "        border:1px rgb(0, 53, 133) solid;\n" +
@@ -232,12 +213,18 @@ public class AppCss implements Serializable {
             "        color: rgb(0, 53, 133);      \n" +
             "    }\n" +
             "    .outlineTicketButton:hover{\n" +
-            "        /* border:none; */\n" +
             "        background-color: rgb(10, 79, 182) ;\n" +
             "        color: white;\n" +
             "        cursor: pointer;\n" +
             "    }\n" +
-            "  \n" +
+            "   .outlineTicketButton a{\n" +
+            "      text-decoration: none;\n" +
+            "      color: rgb(0, 53, 133);\n" +
+            "    }" +
+            ".outlineTicketButton a:hover{\n" +
+            "      text-decoration: none;\n" +
+            "      color: white;\n" +
+            "    }"+
             "    .topPart {\n" +
             "      height: 200px;\n" +
             "      background: rgb(28, 85, 172);\n" +
@@ -255,14 +242,15 @@ public class AppCss implements Serializable {
             "        font-weight: 600;\n" +
             "        font-style: italic;\n" +
             "    }\n" +
-
+            "   \n" +
             "    .oneFixture {\n" +
-            "      display: flex;\n" +
+            "      display: flex;    \n" +
             "      justify-content: space-between;\n" +
+            "      width: 100%;\n" +
             "      align-items: center;\n" +
             "      padding: 18px 0px;\n" +
             "      color: #272829;\n" +
-            "      border-bottom: 1px solid #7c7c7c;\n" +
+            "      border-bottom: 1px solid #7c7c7c;      \n" +
             "    }\n" +
             "    .oneFixture:hover {\n" +
             "      cursor: pointer;\n" +
@@ -270,40 +258,184 @@ public class AppCss implements Serializable {
             "      padding: 18px 5px;\n" +
             "      color: black;\n" +
             "    }\n" +
-            "    .teams {\n" +
+            "    .teams, .timeLocation {\n" +
             "      display: flex;\n" +
             "      flex-direction: column;\n" +
-            "      gap: 7px;\n" +
+            "      gap: 7px;      \n" +
             "    }\n" +
-            " .fixture{\n" +
+            "    .fixture{\n" +
             "     width: 200px;     \n" +
             "    }\n" +
             "     .timeLocation, .teams{     \n" +
             "      width: 150px;\n" +
-            "     }"+
+            "     }\n" +
+            "     \n" +
+            "   " +
             //ticket styling
-            "    .mainTicketContainer {\n" +
+           "  .mainTicketContainer {\n" +
             "      width: 83%;\n" +
             "      margin: auto;\n" +
-            "      padding-top: 10px;\n" +
-            "      padding-bottom: 10px; \n" +
+            "      padding-top: 30px;\n" +
+            "      padding-bottom: 30px; \n" +
+            "      display: flex;\n" +
+            "      justify-content: space-around;\n" +
+            "      flex-wrap: wrap;\n" +
+            "      align-items: center;\n" +
+            "      height: 100%;\n" +
+            "    }\n" +
+            "  .topTicketPart {\n" +
+            "      height: 150px;\n" +
+            "      background: rgb(28, 85, 172);\n" +
+            "      margin-bottom: 30px;\n" +
+            "      display: flex;\n" +
+            "      align-items: center;\n" +
+            "    }\n" +
+            "    .topTicketPartTitle{\n" +
+            "        width: 73%;\n" +
+            "        margin: auto;\n" +
+            "    }\n" +
+            "    .topTicketPartTitle p{\n" +
+            "        color: white;\n" +
+            "        font-size: 1.5rem;\n" +
+            "        font-weight: 600;\n" +
+            "        font-style: italic;\n" +
+            "    }" +
+            "    .fixtureCard{\n" +
+            "        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);\n" +
+            "        padding: 35px;\n" +
+            "        display: flex;\n" +
+            "        flex-direction: column;\n" +
+            "        gap: 25px;\n" +
+            "        align-items: center;\n" +
+            "    }\n" +
+            "    .fixtureCard p{       \n" +
+            "        text-align: center;\n" +
+            "    }\n" +
+            " .fixtureCard:hover{\n" +
+            "        background-color: #E0F4FF;\n" +
+            "        cursor: pointer;\n" +
+            "    }" +
+            "    .ticketInfoDetails{\n" +
+            "        display: flex;\n" +
+            "        flex-direction: column;\n" +
+            "        gap: 10px;\n" +
+            "        text-align: center;\n" +
+            "        font-weight: 600;\n" +
+            "    }\n" +
+            "    .myTicketNormalButton{\n" +
+           "   padding: 12px 0px;\n" +
+            "        text-align: center;"+
+            "        border-radius: 25px; \n" +
+            "        width:170px;\n" +
+            "        border:none;\n" +
+            "        background-color: rgb(10, 79, 182) ;\n" +
+            "        color: white;\n" +
+            "        cursor: pointer;\n" +
+            "        text-decoration: none;\n" +
+            "    }\n" +
+            "    .myTicketNormalButton a{\n" +
+            "        text-decoration: none;\n" +
+            "        color: white;\n" +
+            "    }" +
+            //ticketBook
+            "  .mainTicketBookContainer{\n" +
             "      display: flex;\n" +
             "      justify-content: center;\n" +
             "      align-items: center;\n" +
             "      height: 70vh;\n" +
             "    }\n" +
-            "    .fixtureCard{\n" +
-            "        background-color: rgb(0, 53, 133) ;\n" +
-            "        color: white;\n" +
-            "        padding: 100px;\n" +
-            "        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);\n" +
+            "   \n" +
+            "    .formTicketContainer {\n" +
+            "      width: 600px;\n" +
+            "      display: grid;\n" +
+            "      grid-template-columns: auto auto;\n" +
+            "      gap: 15px;\n" +
+            "      margin: 20px 0px;\n" +
+            "    }" +
+            "  .ticketButtons{\n" +
+            "        display: flex;\n" +
+            "        justify-content: space-between;\n" +
+            "        gap: 20px;\n" +
+            "        align-items: center;\n" +
+            "    }" +
+            //oneTicket styling
+            "\n" +
+            " .ticketBodyContainer {\n" +
+            "      width: 100%;\n" +
+            "      height: 90vh;\n" +
+            "      display: flex;\n" +
+            "      flex-direction: column;\n" +
+            "      justify-content: center;\n" +
+            "      align-items: center;\n" +
             "    }\n" +
-            "    .fixtureCard p{\n" +
-            "        font-size: 2rem;\n" +
-            "        font-weight: 600;\n" +
-            "        margin: 5px 0px;\n" +
-            "        text-align: start;\n" +
+            "\n" +
+            "    .mainOneTicketContainer {\n" +
+            "      width: 700px;\n" +
+            "      padding: 20px;\n" +
+            "      border-radius: 5px;\n" +
+            "      box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);\n" +
             "    }\n" +
+            "    .topOneTicketPart {\n" +
+            "      display: flex;\n" +
+            "      align-items: center;\n" +
+            "      justify-content: space-around;\n" +
+            "    }"+
+            "    }\n" +
+            "    .gameStyling {\n" +
+            "      display: flex;\n" +
+            "      justify-content: center;\n" +
+            "      align-items: center;\n" +
+            "      padding: 10px;\n" +
+            "      font-size: 1.1rem;\n" +
+            "    }\n" +
+            "    .fixtureType {\n" +
+            "      display: flex;\n" +
+            "      flex-direction: column;\n" +
+            "      gap: 12px;\n" +
+            "      text-align: center;\n" +
+            "      font-weight: 600;\n" +
+            "    }\n" +
+            "    .fineTicketDetails {\n" +
+            "      display: flex;\n" +
+            "      justify-content: space-between;\n" +
+            "      align-items: center;\n" +
+            "      margin-top: 10px;\n" +
+            "    }\n" +
+            "    .fineTicketDetails .leftPart,\n" +
+            "    .rightPart {\n" +
+            "      display: flex;\n" +
+            "      flex-direction: column;\n" +
+            "      gap: 12px;\n" +
+            "      text-align: start;\n" +
+            "    }\n" +
+            "    .ticketNormalButton {\n" +
+            "      padding: 12px 24px;\n" +
+            "      border-radius: 25px;\n" +
+            "      border: none;\n" +
+            "      background-color: rgb(10, 79, 182);\n" +
+            "      color: white;\n" +
+            "      cursor: pointer;\n" +
+            "      text-decoration: none;\n" +
+            "    }\n" +
+            "    .ticketOutlineButton {\n" +
+            "      border: 1px rgb(0, 53, 133) solid;\n" +
+            "      padding: 10px 20px;\n" +
+            "      border-radius: 25px;\n" +
+            "      color: rgb(0, 53, 133);\n" +
+            "      text-decoration: none;\n" +
+            "    }\n" +
+            "    .ticketOutlineButton:hover {\n" +
+            "      /* border:none; */\n" +
+            "      background-color: rgb(10, 79, 182);\n" +
+            "      color: white;\n" +
+            "      cursor: pointer;\n" +
+            "    }\n" +
+            "    .ticketButtons {\n" +
+            "      display: flex;\n" +
+            "      margin-top: 30px;\n" +
+            "      gap: 20px;\n" +
+            "      align-items: center;\n" +
+            "    }"+
             "</style>";
 
     public String getStyle() {
