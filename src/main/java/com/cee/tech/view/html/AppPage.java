@@ -1,5 +1,6 @@
 package com.cee.tech.view.html;
 import com.cee.tech.view.css.AppCss;
+import com.cee.tech.view.toolbar.Footer;
 import com.cee.tech.view.toolbar.Navbar;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +23,8 @@ public class AppPage implements Serializable {
                 "<body>" +
 
                 new Navbar().menu(firstLetter));
-             print.write(content);
+                print.write(content);
+            print.write(new Footer().footerMenu());
 
         print.write("</body>" +
                 "</html>");

@@ -226,7 +226,7 @@ public class AppCss implements Serializable {
             "      color: white;\n" +
             "    }"+
             "    .topPart {\n" +
-            "      height: 200px;\n" +
+            "      height: 150px;\n" +
             "      background: rgb(28, 85, 172);\n" +
             "      margin-bottom: 30px;\n" +
             "      display: flex;\n" +
@@ -238,7 +238,7 @@ public class AppCss implements Serializable {
             "    }\n" +
             "    .topPartTitle p{\n" +
             "        color: white;\n" +
-            "        font-size: 2.5rem;\n" +
+            "        font-size: 1.5rem;\n" +
             "        font-weight: 600;\n" +
             "        font-style: italic;\n" +
             "    }\n" +
@@ -352,6 +352,10 @@ public class AppCss implements Serializable {
             "      gap: 15px;\n" +
             "      margin: 20px 0px;\n" +
             "    }" +
+            "  .fixtureTitle {\n" +
+            "      font-size: 1.5rem;\n" +
+            "      text-align: center;\n" +
+            "    }" +
             "  .ticketButtons{\n" +
             "        display: flex;\n" +
             "        justify-content: space-between;\n" +
@@ -436,6 +440,26 @@ public class AppCss implements Serializable {
             "      gap: 20px;\n" +
             "      align-items: center;\n" +
             "    }"+
+            //footer
+            " .footerContainer{\n" +
+            "        width: 100%;\n" +
+            "        padding: 25px;  \n" +
+            "        border-top: 1px solid black; \n" +
+            "        margin-top: 100px;     \n" +
+            "    }\n" +
+            "    .rightsClass{\n" +
+            "        text-align: center;\n" +
+            "        font-size: 1.1rem;\n" +
+            "        display: flex;\n" +
+            "        gap: 10px;\n" +
+            "        align-items: center;\n" +
+            "        justify-content: center;\n" +
+            "    }\n" +
+            "    .rightsClass a{\n" +
+            "        text-decoration: none;\n" +
+            "        color: rgb(10, 79, 182);\n" +
+            "        font-weight: 600;\n" +
+            "    }" +
             "</style>";
 
     public String getStyle() {

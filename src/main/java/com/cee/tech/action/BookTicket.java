@@ -58,7 +58,7 @@ public class BookTicket extends HttpServlet {
                 "            </div>\n" +
                 "          </div>\n" +
                 "        <div class=\"ticketButtons\">\n" +
-                           "<a href=\"./home\" class=\"homeOutlineButton\" > Cancel</a>\n" +
+                           "<a href=\"./fixtures\" class=\"homeOutlineButton\" > Cancel</a>\n" +
                           "<input class=\"normalFormButton\" type=\"submit\" value=\"Book Ticket\" />\n" +
                         "</div>" +
                 "        </form>\n" +
