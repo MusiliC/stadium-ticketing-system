@@ -1,8 +1,11 @@
 package com.cee.tech.action;
 
 
+import com.cee.tech.app.model.entity.Fixture;
+import com.cee.tech.app.model.entity.Ticket;
 import com.cee.tech.utils.CookieUtils;
 import com.cee.tech.view.html.AppPage;
+import com.cee.tech.view.html.HtmlComponents;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,41 +30,9 @@ public class BookTicket extends HttpServlet {
             System.out.println("Cookie not found");
         }
 
-        new AppPage().renderHtml(req,res,firstLetter, "    <div class=\"mainTicketBookContainer\">      \n" +
+        new AppPage().renderHtml(req,res,firstLetter, "<div class=\"mainTicketBookContainer\">      \n" +
                 "\n" +
-                "        <form action=\"#\" method=\"post\">\n" +
-                "          <p class=\"fixtureTitle\">Book a ticket</p>\n" +
-                "          <div class=\"formTicketContainer\">\n" +
-                "            <div class=\"formInput\">\n" +
-                "              <label for=\"clientName\">Name:</label>\n" +
-                "              <input type=\"text\" name=\"clientName\" id=\"clientName\" />\n" +
-                "            </div>\n" +
-                "            <div class=\"formInput\">\n" +
-                "              <label for=\"clientEmail\">Email:</label>\n" +
-                "              <input type=\"text\" name=\"clientEmail\" id=\"clientEmail\" />\n" +
-                "            </div>\n" +
-                "            <div class=\"formInput\">\n" +
-                "              <label for=\"number\">Phone Number:</label>\n" +
-                "              <input type=\"text\" name=\"number\" id=\"number\" />\n" +
-                "            </div>\n" +
-                "            <div class=\"formInput\">\n" +
-                "                <label for=\"ticketType\">Ticket Type:</label>\n" +
-                "                <select name=\"ticketType\" id=\"ticketType\" class=\"fixtureStyling\">\n" +
-                "                  <option value=\"\" selected disabled hidden>Choose ticket type</option>\n" +
-                "                  <option value=\"normal\">Normal</option>\n" +
-                "                  <option value=\"VIP\">VIP</option>               \n" +
-                "                </select>\n" +
-                "              </div>\n" +
-                "            <div class=\"formInput\">\n" +
-                "              <label for=\"fixtureQuantity\">Number of tickets:</label>\n" +
-                "              <input type=\"number\" value=\"1\" name=\"fixtureQuantity\" id=\"fixtureQuantity\" />\n" +
-                "            </div>\n" +
-                "          </div>\n" +
-                "        <div class=\"ticketButtons\">\n" +
-                           "<a href=\"./fixtures\" class=\"homeOutlineButton\" > Cancel</a>\n" +
-                          "<input class=\"normalFormButton\" type=\"submit\" value=\"Book Ticket\" />\n" +
-                        "</div>" +
-                "        </form>\n" +
+                HtmlComponents.ticketForm(Ticket.class) +
                 "    </div>");
     }
 }

@@ -2,19 +2,15 @@ package com.cee.tech.action;
 
 import com.cee.tech.app.bean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
-import com.cee.tech.app.model.Fixture;
+import com.cee.tech.app.model.entity.Fixture;
 import com.cee.tech.database.Database;
 import com.cee.tech.utils.CookieUtils;
 import com.cee.tech.view.html.AppPage;
-import org.apache.commons.beanutils.BeanUtils;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.InvocationTargetException;
 
 @WebServlet("/fixtures")
 public class FixtureAction extends BaseActionClass {

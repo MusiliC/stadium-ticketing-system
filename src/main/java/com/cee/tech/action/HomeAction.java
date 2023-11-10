@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import com.cee.tech.app.model.Fixture;
+import com.cee.tech.app.model.entity.Fixture;
 import com.cee.tech.utils.CookieUtils;
 import com.cee.tech.utils.CustomLogger;
 import com.cee.tech.view.html.AppPage;
@@ -68,7 +68,7 @@ public class HomeAction extends HttpServlet {
                     "        <p class=\"fixtureTitle\">Create Fixture</p>\n" +
                     "\n" +
                     
-                    HtmlComponents.form(new Fixture()) +
+                    HtmlComponents.form(Fixture.class) +
                     "      </div>\n" +
                     "    </div>");
     }

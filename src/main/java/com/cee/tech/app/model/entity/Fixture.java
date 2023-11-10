@@ -1,17 +1,26 @@
-package com.cee.tech.app.model;
+package com.cee.tech.app.model.entity;
 
+import com.cee.tech.view.html.EticketFormField;
+import com.cee.tech.view.html.EticketHtmlForm;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
-
+@EticketHtmlForm(label = "Fixture", url = "./fixtures", httpMethod = "POST")
 public class Fixture implements Serializable {
 
+    @EticketFormField(label = "Fixture Id")
     private String fixtureId;
+    @EticketFormField(label = "Fixture Type")
     private String fixtureType;
+    @EticketFormField(label = "Fixture Time", fieldType = "time")
     private String fixtureTime;
+    @EticketFormField(label = "Fixture Location")
     private String fixtureLocation;
+    @EticketFormField(label = "Home Team")
     private String homeTeam;
+    @EticketFormField(label = "Away Team")
     private String awayTeam;
+    @EticketFormField(label = "Fixture Date", fieldType = "date")
     private String fixtureDate;
 
 
@@ -94,22 +103,7 @@ public class Fixture implements Serializable {
     public Fixture() {
     }
 
-//  <div class="oneFixture">
-//          <div class="teams">
-//            <p>15:00 EAT</p>
-//    <p>MISC Kasarani</p>
-//          </div>
-//          <div class="teams">
-//    <p>Gor Mahia</p>
-//            <p>Tusker</p>
-//          </div>
-//          <div class="date">
-//            <p>12/03/2023</p>
-//          </div>
-//          <div class="ticket">
-//            <div class="outlineButton">Buy Ticket</div>
-//          </div>
-//        </div>
+
 
     public String tableRow() {
         StringBuilder tbBuilder = new StringBuilder();

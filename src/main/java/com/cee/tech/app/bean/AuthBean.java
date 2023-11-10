@@ -1,11 +1,8 @@
 package com.cee.tech.app.bean;
-import com.cee.tech.app.model.User;
+import com.cee.tech.app.model.entity.User;
 import com.cee.tech.database.Database;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
-import java.util.Date;
 
 public class AuthBean implements Serializable,AuthBeanI {
     Database database = Database.getDbInstance();

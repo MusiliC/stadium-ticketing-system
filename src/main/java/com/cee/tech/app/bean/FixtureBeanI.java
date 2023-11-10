@@ -1,6 +1,6 @@
 package com.cee.tech.app.bean;
 
-import com.cee.tech.app.model.Fixture;
+import com.cee.tech.app.model.entity.Fixture;
 
 public interface FixtureBeanI {
     public  String upcomingFixtures();

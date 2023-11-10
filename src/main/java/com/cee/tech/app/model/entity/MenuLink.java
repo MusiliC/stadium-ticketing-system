@@ -1,4 +1,4 @@
-package com.cee.tech.app.model;
+package com.cee.tech.app.model.entity;
 
 import java.io.Serializable;
 

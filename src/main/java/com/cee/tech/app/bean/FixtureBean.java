@@ -1,10 +1,9 @@
 package com.cee.tech.app.bean;
 
-import com.cee.tech.app.model.Fixture;
+import com.cee.tech.app.model.entity.Fixture;
 import com.cee.tech.database.Database;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FixtureBean implements FixtureBeanI, Serializable {

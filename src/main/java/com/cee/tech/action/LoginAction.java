@@ -2,16 +2,13 @@ package com.cee.tech.action;
 
 import com.cee.tech.app.bean.AuthBean;
 import com.cee.tech.app.bean.AuthBeanI;
-import com.cee.tech.app.model.User;
-import com.cee.tech.database.Database;
+import com.cee.tech.app.model.entity.User;
 import com.cee.tech.utils.CustomLogger;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.logging.Level;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;

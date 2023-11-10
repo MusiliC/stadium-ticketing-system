@@ -1,7 +1,7 @@
 package com.cee.tech.events;
 
-import com.cee.tech.app.model.Fixture;
-import com.cee.tech.app.model.User;
+import com.cee.tech.app.model.entity.Fixture;
+import com.cee.tech.app.model.entity.User;
 import com.cee.tech.database.Database;
 
 import javax.servlet.ServletContextEvent;

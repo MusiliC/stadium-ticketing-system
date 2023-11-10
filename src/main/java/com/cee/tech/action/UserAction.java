@@ -2,11 +2,10 @@ package com.cee.tech.action;
 
 import com.cee.tech.app.bean.UserBean;
 import com.cee.tech.app.bean.UserBeanI;
-import com.cee.tech.app.model.User;
+import com.cee.tech.app.model.entity.User;
 import com.cee.tech.database.Database;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

@@ -1,6 +1,6 @@
 package com.cee.tech.app.bean;
 
-import com.cee.tech.app.model.User;
+import com.cee.tech.app.model.entity.User;
 
 public interface UserBeanI {
     boolean registerUser(User user);
