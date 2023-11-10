@@ -1,3 +1,6 @@
+<%-- This is a JSP comment --%>
+<%@ page import="com.cee.tech.utils.Calculator" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,24 +71,38 @@
     </style>
 </head>
 <body>
+
 <div class="login-container">
 
-    <h2>Login</h2>
+<h2> <%= application.getInitParameter("AppName") %></h2>
 
-    <form action="./login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required/>
+<%--
+<%!
+  int hundred = 100;
+  int thousand = 1000;
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+  int sum = hundred + thousand;
 
-        <div class="regLink">
-            <input type="submit"/>
-            <div><a href="./register">No account? Create</a></div>
-        </div>
+  int addSum(int v1, int v2){
+    return v1 +v2;
+
+  }
 
 
-    </form>
+   int justAnotherNumber = new Calculator().doSum(1,1);
+  %>
+
+
+--%>
+<%=
+  application.getAttribute("JSP")
+%>
+
+  <br/>
+
+    <h2>Testing jsp</h2>
+
+ 
 </div>
 </body>
 </html>
