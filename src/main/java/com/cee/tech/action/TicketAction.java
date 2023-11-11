@@ -10,22 +10,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/tickets")
-public class TicketAction extends HttpServlet {
+public class TicketAction extends BaseActionClass {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        Cookie userCookie = CookieUtils.getCookieByName(req, "username");
-        String accessCookie = null;
-        String firstLetter = null;
-
-        if (userCookie != null) {
-            accessCookie = userCookie.getValue();
-            firstLetter = accessCookie.substring(0, 1).toUpperCase();
-        } else {
-            System.out.println("Cookie not found");
-        }
-
-        new AppPage().renderHtml(req, res, firstLetter, "    <div class=\"topTicketPart\">\n" +
+        renderPage(req, res , "<div class=\"topTicketPart\">\n" +
                 "        <div class=\"topTicketPartTitle\">\n" +
                 "          <p>My Tickets</p>\n" +
                 "        </div>\n" +

@@ -76,23 +76,6 @@
 
 <h2> <%= application.getInitParameter("AppName") %></h2>
 
-<%--
-<%!
-  int hundred = 100;
-  int thousand = 1000;
-
-  int sum = hundred + thousand;
-
-  int addSum(int v1, int v2){
-    return v1 +v2;
-
-  }
-
-
-   int justAnotherNumber = new Calculator().doSum(1,1);
-  %>
-
---%>
 <%
   application.setAttribute("JSP", "Set from login");
 %>
@@ -112,10 +95,7 @@
             <input type="submit"/>
             <div><a href="./register">No account? Create</a></div>
         </div>
-        <div class="regLink">
-      
-          <div><a href="./register.jsp">Click here to test jsp</a></div>
-      </div>
+
 
     </form>
 </div>

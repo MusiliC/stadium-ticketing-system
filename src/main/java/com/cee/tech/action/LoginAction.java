@@ -41,9 +41,6 @@ public class LoginAction extends BaseActionClass {
 
         User userDetails = authBean.authenticateUser(loginUser);
 
-        // System.out.println("What time was this db created: " + database.getDatabaseCreatedAt());
-        // logger.log(Level.INFO, "What time was this db created: " + database.getDatabaseCreatedAt());
-
 
             if (userDetails !=null) {
                 HttpSession httpSession = req.getSession(true);

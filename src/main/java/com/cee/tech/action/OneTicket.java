@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("tickets/id")
-public class OneTicket extends HttpServlet {
+public class OneTicket extends BaseActionClass {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
@@ -31,6 +31,8 @@ public class OneTicket extends HttpServlet {
         } else {
             System.out.println("Cookie not found");
         }
+
+//        renderPage(req,res,);
 
         new AppPage().renderHtml(req,res, firstLetter, "    <div class=\"ticketBodyContainer\">\n" +
                 "      <div class=\"mainOneTicketContainer\">\n" +

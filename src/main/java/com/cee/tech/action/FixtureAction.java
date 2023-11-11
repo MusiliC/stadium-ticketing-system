@@ -24,31 +24,22 @@ public class FixtureAction extends BaseActionClass {
         Database database = Database.getDbInstance();
         FixtureBeanI fixtureBean = new FixtureBean();
 
-        Cookie userCookie = CookieUtils.getCookieByName(req, "username");
-        String accessCookie = null;
-        String firstLetter = null;
 
-        if (userCookie != null) {
-            accessCookie = userCookie.getValue();
-            firstLetter = accessCookie.substring(0, 1).toUpperCase();
-        } else {
-            System.out.println("Cookie not found");
-        }
-        
-    new AppPage().renderHtml(req,res, firstLetter, "    <div class=\"mainFixtureContainer\">\n" +
-            "      <!-- top part -->\n" +
-            "      <div class=\"topPart\">\n" +
-            "        <div class=\"topPartTitle\">\n" +
-            "          <p>Upcoming Fixtures</p>\n" +
-            "        </div>\n" +
-            "      </div>\n" +
-            "      <!-- bottom part  -->\n" +
-            "      <div class=\"fixtureContainer\">\n" +
-            "        <!-- each fixture div -->\n" +
-                    fixtureBean.upcomingFixtures() +
+        renderPage(req, res, "    <div class=\"mainFixtureContainer\">\n" +
+                "      <!-- top part -->\n" +
+                "      <div class=\"topPart\">\n" +
+                "        <div class=\"topPartTitle\">\n" +
+                "          <p>Upcoming Fixtures</p>\n" +
+                "        </div>\n" +
+                "      </div>\n" +
+                "      <!-- bottom part  -->\n" +
+                "      <div class=\"fixtureContainer\">\n" +
+                "        <!-- each fixture div -->\n" +
+                fixtureBean.upcomingFixtures() +
 
-            "      </div>\n" +
-            "    </div>");
+                "      </div>\n" +
+                "    </div>");
+
 
 
     }
@@ -57,23 +48,13 @@ public class FixtureAction extends BaseActionClass {
         HttpSession httpSession = req.getSession();
         Database database = Database.getDbInstance();
 
-        Cookie userCookie = CookieUtils.getCookieByName(req, "username");
-        String accessCookie = null;
-        String firstLetter = null;
-
-        if (userCookie != null) {
-            accessCookie = userCookie.getValue();
-            firstLetter = accessCookie.substring(0, 1).toUpperCase();
-        } else {
-            System.out.println("Cookie not found");
-        }
 
         serializeForm(fixture, req.getParameterMap());
         database.getFixtures().add(fixture);
 
         FixtureBeanI fixtureBean = new FixtureBean();
 
-        new AppPage().renderHtml(req,res, firstLetter, "    <div class=\"mainFixtureContainer\">\n" +
+        renderPage(req, res, "    <div class=\"mainFixtureContainer\">\n" +
                 "      <!-- top part -->\n" +
                 "      <div class=\"topPart\">\n" +
                 "        <div class=\"topPartTitle\">\n" +

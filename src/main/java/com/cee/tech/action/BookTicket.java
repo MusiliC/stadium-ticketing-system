@@ -16,23 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/book")
-public class BookTicket extends HttpServlet {
+public class BookTicket extends BaseActionClass {
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 
-        Cookie userCookie = CookieUtils.getCookieByName(req, "username");
-        String accessCookie = null;
-        String firstLetter = null;
-
-        if (userCookie != null) {
-            accessCookie = userCookie.getValue();
-            firstLetter = accessCookie.substring(0, 1).toUpperCase();
-        } else {
-            System.out.println("Cookie not found");
-        }
-
-        new AppPage().renderHtml(req,res,firstLetter, "<div class=\"mainTicketBookContainer\">      \n" +
+        renderPage(req,res, "<div class=\"mainTicketBookContainer\"> \n" +
                 "\n" +
                 HtmlComponents.ticketForm(Ticket.class) +
                 "    </div>");
+
+
     }
 }

@@ -1,4 +1,4 @@
-<%-- This is a JSP comment --%>
+<%-- This is a JSP comment
 <%@ page import="com.cee.tech.utils.Calculator" %>
 
 <!DOCTYPE html>
@@ -106,3 +106,5 @@
 </div>
 </body>
 </html>
+
+--%>
