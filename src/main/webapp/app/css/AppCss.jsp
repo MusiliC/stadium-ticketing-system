@@ -51,7 +51,7 @@
                 }
                 .contactButton a{
                     text-decoration: none;
-                    color: rgb(0, 53, 133);
+                    color: <%= request.getParameter("buttonColor") %>;
                 }
                 .contactButton a:hover{
                     color: white;
