@@ -2,6 +2,7 @@
 <%@ page import = "com.cee.tech.view.toolbar.Footer" %>
 <%@ page import = "com.cee.tech.utils.CookieUtils" %>
 <%@ page import="javax.servlet.http.Cookie" %>
+
 <!DOCTYPE html>
                 <html>
 
@@ -27,7 +28,9 @@
     }
 %>
 
-               <%= new Navbar().menu(firstLetter) %>
+ <jsp:useBean id="navbarBean" class="com.cee.tech.usebean.NavbarBean"/>
+ <%  navbarBean.generateMenu(firstLetter); %>
+               <jsp:getProperty name="navbarBean" property="menu" />
                <%= request.getAttribute("content") %>
                <%= new Footer().footerMenu() %>
 
