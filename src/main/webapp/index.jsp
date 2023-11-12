@@ -85,11 +85,19 @@
     <h2>Login</h2>
 
     <form action="./login" method="post">
+
+        <jsp:useBean id="loginFormBean" class="com.cee.tech.usebean.LoginForm"/>
+        Time to login:    <jsp:getProperty name="loginFormBean" property="timeToLogin" />
+        <jsp:setProperty name="loginFormBean" property="usernamePlaceholder" value="Enter your username" />
+
+        <br/>
+        <br/>
+
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required/>
+        <input type="text" id="username" placeholder = "<jsp:getProperty name="loginFormBean" property="usernamePlaceholder" />" name="username" required/>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" placeholder = "<jsp:getProperty name="loginFormBean" property="passwordPlaceholder" />" required>
 
         <div class="regLink">
             <input type="submit"/>
