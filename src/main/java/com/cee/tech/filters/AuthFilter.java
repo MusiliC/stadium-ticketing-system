@@ -44,7 +44,24 @@ public class AuthFilter implements Filter {
         } else {
             if (StringUtils.isNotBlank((String) httpSession.getAttribute("LoginId"))) {
                 httpResponse.addHeader("AuthTime", DateFormat.getDateTimeInstance().format(new Date()));
-                chain.doFilter(request, response);
+
+                // Check if the user is an admin
+                String username = (String) httpSession.getAttribute("username");
+                if ("Admin".equals(username)) {
+                    // User is an admin, allow access to /admin pages
+                    if (servletPath.startsWith("/admin")) {
+                        chain.doFilter(request, response);
+                    } else {
+                        httpResponse.sendRedirect(httpRequest.getContextPath() + "/admin");
+                    }
+                } else {
+                    if (servletPath.startsWith("/admin")) {
+                        httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
+                        response.getWriter().flush();
+                    } else {
+                        chain.doFilter(request, response);
+                    }
+                }
             } else {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
                 response.getWriter().flush();

@@ -77,7 +77,7 @@
 <h2> <%= application.getInitParameter("AppName") %></h2>
 
 <% 
-  if( !session.isNew() && session.getAttribute("LoginId") != null){
+  if( !session.isNew() && session.getAttribute("LoginId") != null ){
     response.sendRedirect("./home");
 
   } else {

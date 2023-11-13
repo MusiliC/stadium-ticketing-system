@@ -50,7 +50,11 @@ public class LoginAction extends BaseActionClass {
                 res.addCookie(newCookie);
                 // sending data -> another servlet
                 httpSession.setAttribute("username", username);
-                res.sendRedirect("./home");
+                if ("Admin".equals(username)) {
+                    res.sendRedirect("./admin");
+                } else {
+                    res.sendRedirect("./home");
+                }
 
         }
 

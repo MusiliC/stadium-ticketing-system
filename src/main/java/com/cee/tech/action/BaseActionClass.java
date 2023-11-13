@@ -1,9 +1,5 @@
 package com.cee.tech.action;
-
-import com.cee.tech.app.model.entity.Fixture;
-import com.cee.tech.view.html.HtmlComponents;
 import org.apache.commons.beanutils.BeanUtils;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +25,13 @@ public class BaseActionClass extends HttpServlet {
         req.setAttribute("content", content);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("./app/index.jsp");
+        dispatcher.forward(req, res);
+    }
+
+    public  void renderAdminPage(HttpServletRequest req, HttpServletResponse res, String content) throws ServletException, IOException {
+        req.setAttribute("content", content);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("./app/adminIndex.jsp");
         dispatcher.forward(req, res);
     }
 }

@@ -454,4 +454,104 @@
                     color: rgb(10, 79, 182);
                     font-weight: 600;
                 }
+                   .adminMainContainer{
+                        display: flex;
+                        width: 100%;
+                        min-height: 100vh;
+                    }
+                    .sidebar{
+                        width: 20%;
+                        background-color: rgb(10, 79, 182);
+                        color: white;
+                        display: flex;
+                        flex-direction: column;
+
+                    }
+                    .adminContent{
+                      height: 100%;
+                        width: 80%;
+                    }
+                    .adminAppName{
+                        padding: 40px 30px;
+                        border-bottom: 1px solid wheat;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    .adminAppName p{
+                        font-size: 1.3rem;
+                        font-weight: 600;
+                    }
+
+                    .adminTitle{
+                        padding: 30px 30px;
+                        border-bottom: 1px solid wheat;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                    }
+                    .adminTitle p {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                    }
+
+                    .adminLinks{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 30px;
+                        padding: 40px 30px;
+                        border-bottom: 1px solid wheat;
+                    }
+
+                    .adminLinkTag{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    .adminLinkTag a{
+                        color: white;
+                        text-decoration: none;
+                    }
+
+                    .adminSettings{
+                        padding: 40px 30px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    .topAdminPart{
+                        display: flex;
+                        width: 80%;
+                        margin: 10px auto;
+                        padding: 20px 0px;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                       .topAdminPart a{
+                          color: #272829;
+                          text-decoration: none;
+                        }
+                        .topAdminPart a:hover {
+                          color: rgb(0, 53, 133);
+                        }
+
+                  .adminLogout {
+                       border: 1px rgb(0, 53, 133) solid;
+                       padding: 7px 15px;
+                       border-radius: 25px;
+                       color: rgb(0, 53, 133);
+                     }
+
+                     .adminLogout:hover{
+                         background-color: rgb(0, 53, 133);
+                         color: white;
+                     }
+
+                     .adminLogout a:hover{
+                         color: white;
+                     }
+
             </style>
