@@ -29,9 +29,14 @@
 %>
 
  <jsp:useBean id="navbarBean" class="com.cee.tech.usebean.NavbarBean"/>
+ <jsp:useBean id="contentHtmlRender" class="com.cee.tech.usebean.ContentBean" scope="request"/>
+ <jsp:setProperty name="contentHtmlRender" property="content" value='<%= request.getAttribute("content") %>' />
+
+
  <%  navbarBean.generateMenu(firstLetter); %>
+ 
                <jsp:getProperty name="navbarBean" property="menu" />
-               <%= request.getAttribute("content") %>
+               <jsp:getProperty name="contentHtmlRender" property="content" />
                <%= new Footer().footerMenu() %>
 
 

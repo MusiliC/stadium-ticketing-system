@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 
-//@WebFilter("/*")
+@WebFilter("/*")
 public class AuthFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -34,7 +34,7 @@ public class AuthFilter implements Filter {
         if (httpSession.isNew() || StringUtils.isBlank((String) httpSession.getAttribute("LoginId"))) {
             httpSession.invalidate();
 
-            if (servletPath.equals("/login") || servletPath.equals(".jsp") || servletPath.equals("/register")
+            if (servletPath.equals("/login") || servletPath.endsWith(".jsp") || servletPath.equals("/register")
                     || servletPath.equals("/user"))
                 chain.doFilter(request, response);
             else {

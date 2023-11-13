@@ -76,36 +76,39 @@
 
 <h2> <%= application.getInitParameter("AppName") %></h2>
 
-<%
-  application.setAttribute("JSP", "Set from login");
-%>
+<% 
+  if( !session.isNew() && session.getAttribute("LoginId") != null){
+    response.sendRedirect("./home");
 
+  } else {
+%>
   <br/>
 
-    <h2>Login</h2>
+        <h2>Login</h2>
 
-    <form action="./login" method="post">
+        <form action="./login" method="post">
 
-        <jsp:useBean id="loginFormBean" class="com.cee.tech.usebean.LoginForm"/>
-        Time to login:    <jsp:getProperty name="loginFormBean" property="timeToLogin" />
-        <jsp:setProperty name="loginFormBean" property="usernamePlaceholder" value="Enter your username" />
+            <jsp:useBean id="loginFormBean" class="com.cee.tech.usebean.LoginForm"/>
+            Time to login:    <jsp:getProperty name="loginFormBean" property="timeToLogin" />
+            <jsp:setProperty name="loginFormBean" property="usernamePlaceholder" value="Enter your username" />
 
-        <br/>
-        <br/>
+            <br/>
+            <br/>
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder = "<jsp:getProperty name="loginFormBean" property="usernamePlaceholder" />" name="username" required/>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder = "<jsp:getProperty name="loginFormBean" property="usernamePlaceholder" />" name="username" required/>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder = "<jsp:getProperty name="loginFormBean" property="passwordPlaceholder" />" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder = "<jsp:getProperty name="loginFormBean" property="passwordPlaceholder" />" required>
 
-        <div class="regLink">
-            <input type="submit"/>
-            <div><a href="./register">No account? Create</a></div>
-        </div>
+            <div class="regLink">
+                <input type="submit"/>
+                <div><a href="./register">No account? Create</a></div>
+            </div>
 
 
-    </form>
-</div>
-</body>
-</html>
+        </form>
+    </div>
+    </body>
+    </html>
+<% } %>
