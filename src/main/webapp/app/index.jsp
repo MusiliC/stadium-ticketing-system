@@ -2,6 +2,7 @@
 <%@ page import = "com.cee.tech.view.toolbar.Footer" %>
 <%@ page import = "com.cee.tech.utils.CookieUtils" %>
 <%@ page import="javax.servlet.http.Cookie" %>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
                 <html>
@@ -31,15 +32,18 @@
  <jsp:useBean id="navbarBean" class="com.cee.tech.usebean.NavbarBean"/>
  <jsp:useBean id="contentHtmlRender" class="com.cee.tech.usebean.ContentBean" scope="request"/>
  <jsp:useBean id="footerMenuContent" class="com.cee.tech.usebean.FooterBean" />
- <jsp:setProperty name="contentHtmlRender" property="content" value='<%= request.getAttribute("content") %>' />
+ <jsp:setProperty name="contentHtmlRender" property="content" value='${requestScope.content}' />
 
 
  <%  navbarBean.generateMenu(firstLetter); %>
   <% footerMenuContent.generateFooterMenu(); %>
  
-               <jsp:getProperty name="navbarBean" property="menu" />
-               <jsp:getProperty name="contentHtmlRender" property="content" />
-                <jsp:getProperty name="footerMenuContent" property="footerMenu" />
+              <%-- <jsp:getProperty name="navbarBean" property="menu" /> --%>
+               ${navbarBean.menu}
+              <%--  <jsp:getProperty name="contentHtmlRender" property="content" /> --%>
+              ${contentHtmlRender.content}
+             <%--  <jsp:getProperty name="footerMenuContent" property="footerMenu" /> --%>
+             ${footerMenuContent.footerMenu}
             <%--   <%= new Footer().footerMenu() %> --%>
 
 
