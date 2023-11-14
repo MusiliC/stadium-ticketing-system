@@ -30,14 +30,17 @@
 
  <jsp:useBean id="navbarBean" class="com.cee.tech.usebean.NavbarBean"/>
  <jsp:useBean id="contentHtmlRender" class="com.cee.tech.usebean.ContentBean" scope="request"/>
+ <jsp:useBean id="footerMenuContent" class="com.cee.tech.usebean.FooterBean" />
  <jsp:setProperty name="contentHtmlRender" property="content" value='<%= request.getAttribute("content") %>' />
 
 
  <%  navbarBean.generateMenu(firstLetter); %>
+  <% footerMenuContent.generateFooterMenu(); %>
  
                <jsp:getProperty name="navbarBean" property="menu" />
                <jsp:getProperty name="contentHtmlRender" property="content" />
-               <%= new Footer().footerMenu() %>
+                <jsp:getProperty name="footerMenuContent" property="footerMenu" />
+            <%--   <%= new Footer().footerMenu() %> --%>
 
 
     </body>

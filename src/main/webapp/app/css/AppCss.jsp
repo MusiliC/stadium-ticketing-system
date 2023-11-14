@@ -398,6 +398,7 @@
                   justify-content: space-between;
                   align-items: center;
                   margin-top: 10px;
+                  padding: 10px;
                 }
                 .fineTicketDetails .leftPart,
                 .rightPart {
@@ -434,6 +435,15 @@
                   gap: 20px;
                   align-items: center;
                 }
+                 .ticketDetailsTitle{
+                      margin-bottom: 30px;
+                    }
+                 .ticketDetailsTitle p{
+                      font-size: 1.7rem;
+                      letter-spacing: 2px;
+                      color: rgb(10, 79, 182);
+                      font-weight: 570;
+                    }
             <%-- footer --%>
              .footerContainer{
                     width: 100%;
