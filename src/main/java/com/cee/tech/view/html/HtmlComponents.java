@@ -1,30 +1,36 @@
 package com.cee.tech.view.html;
 
+import com.cee.tech.app.model.entity.TicketPricing;
+import com.cee.tech.database.Database;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.util.List;
 
 public class HtmlComponents implements Serializable {
-//    public static String fixtureCard(List<Object> models) {
+//    public static String table(List<Object> models) {
 //
-//        //List<Fixture> fixtures = Database.getDbInstance().getFixtures();
-//
-//        if(models == null || models.isEmpty() ){
+//        if(models == null || models.isEmpty()){
 //            return StringUtils.EMPTY;
 //        }
 //        Field[] fields = models.get(0).getClass().getFields();
+//
 //        StringBuilder tbBuilder = new StringBuilder();
 //
-//        for(Field field: fields)
+//        tbBuilder.append("<table>");
+//        tbBuilder.append("<tr>");
+//        for(Field field: fields){
+//        tbBuilder.append(" <th>" + field.getName() + "</th");
+//        }
 //
 //
-//
-//
-//        for(Object model: models)
-//            tbBuilder.append(fixture.tableRow());
-//
-//
+//        for (Object model: models){
+//            tbBuilder.append("<tr>");
+//            for(Field field: fields)
+//                tb
+//        }
+//        tbBuilder.append("</table>");
 //        return tbBuilder.toString();
 //    }
 

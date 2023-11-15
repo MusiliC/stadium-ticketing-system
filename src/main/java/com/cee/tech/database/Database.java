@@ -1,6 +1,7 @@
 package com.cee.tech.database;
 
 import com.cee.tech.app.model.entity.Fixture;
+import com.cee.tech.app.model.entity.TicketPricing;
 import com.cee.tech.app.model.entity.User;
 
 import java.io.Serializable;
@@ -32,6 +33,16 @@ public class Database implements Serializable {
 
     private List<User> users = new ArrayList<>();
     private  List<Fixture> fixtures = new ArrayList<>();
+
+    private List<TicketPricing> ticketPricing = new ArrayList<>();
+
+    public List<TicketPricing> getTicketPricing() {
+        return ticketPricing;
+    }
+
+    public void setTicketPricing(List<TicketPricing> ticketPricing) {
+        this.ticketPricing = ticketPricing;
+    }
 
     public List<Fixture> getFixtures() {
         return fixtures;

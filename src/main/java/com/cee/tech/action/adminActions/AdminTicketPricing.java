@@ -1,6 +1,10 @@
 package com.cee.tech.action.adminActions;
 
 import com.cee.tech.action.BaseActionClass;
+import com.cee.tech.app.bean.TicketPricingBeanI;
+import com.cee.tech.app.bean.adminbean.TicketPricingBean;
+import com.cee.tech.app.model.entity.TicketPricing;
+import com.cee.tech.database.Database;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,14 +14,25 @@ import java.io.IOException;
 
 @WebServlet("/adminticketpricing")
 public class AdminTicketPricing extends BaseActionClass {
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+        Database database = Database.getDbInstance();
+
+     database.getTicketPricing().add(new TicketPricing(req.getParameter("fixtureType"),Integer.parseInt( req.getParameter("vipTicketPrice")),Integer.parseInt( req.getParameter("normalTicketPrice"))));
+
+     res.sendRedirect("./adminticketpricing");
+    }
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+        TicketPricingBeanI ticketPricingBean = new TicketPricingBean();
+
         renderAdminPage(req, res, "   <div class=\"TicketPricingContainer\">\n" +
                 "      <div class=\"createFixtureContainer\">\n" +
                 "        <p class=\"fixtureTitle\">Ticket Pricing</p>\n" +
                 "\n" +
-                "        <form action=\"./fixtures\" method=\"post\">\n" +
+                "        <form action=\"./adminticketpricing\" method=\"post\">\n" +
                 "          <div class=\"formTicketContainer\">\n" +
                 "            <div class=\"formTicketInput\">\n" +
                 "              <label for=\"fixtureType\">Fixture Type:</label>\n" +
@@ -57,26 +72,7 @@ public class AdminTicketPricing extends BaseActionClass {
                 "        <div class=\"ticketPriceTitle\">\n" +
                 "          <p>Available Tickets</p>\n" +
                 "        </div>\n" +
-                "        <table>\n" +
-                "          <tr>\n" +
-                "            <th>Ticket Type</th>\n" +
-                "            <th>VIP Amount</th>\n" +
-                "            <th>Normal Amount</th>\n" +
-                "            <th>Action</th>\n" +
-                "          </tr>\n" +
-                "          <tr>\n" +
-                "            <td>Mozzart Cup</td>\n" +
-                "            <td>500</td>\n" +
-                "            <td>200</td>\n" +
-                "            <td>\n" +
-                "              <div class=\"homeButtons\">\n" +
-                "                <a href=\"./#\" class=\"homeOutlineButton\" >Edit</a>\n" +
-                "                <a href=\"./#\" class=\"homeNormalButton\">Delete</a>\n" +
-                "          </div>\n" +
-                "            </td>\n" +
-                "          </tr>\n" +
-                "        \n" +
-                "        </table>\n" +
+                ticketPricingBean.ticketPricesData()  +
                 "      </div>\n" +
                 "  \n" +
                 "        </div>\n" +

@@ -1,6 +1,7 @@
 package com.cee.tech.events;
 
 import com.cee.tech.app.model.entity.Fixture;
+import com.cee.tech.app.model.entity.TicketPricing;
 import com.cee.tech.app.model.entity.User;
 import com.cee.tech.database.Database;
 
@@ -22,7 +23,9 @@ public class AppInit implements ServletContextListener {
 
         database.getFixtures().add(new Fixture("Kenya Premier League","17:00 EAT", "Nyayo","Gor Mahia", "Shabana","27/10/2023"));
         database.getFixtures().add(new Fixture("Mozzart Cup","14:00 EAT", "MISC Kasarani","Kariobangi Sharks","Kakamega Homeboyz",  "1/11/2023"));
-        database.getFixtures().add(new Fixture("Caf Champions League","15:00 EAT","St Sebastian","Murang'a Seals","Muhoroni Youth",  "3/11/2023"  ));
+
+        database.getTicketPricing().add(new TicketPricing("CAF Champions League", 800, 300));
+
 
     }
 
