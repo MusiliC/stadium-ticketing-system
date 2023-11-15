@@ -151,6 +151,9 @@
                   margin: auto;
                   padding-top: 10px;
                   padding-bottom: 10px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
                 }
                 .formContainer {
                   width: 600px;
@@ -158,9 +161,6 @@
                   grid-template-columns: auto auto;
                   gap: 15px;
                   margin: 20px 0px;
-                }
-                .fixtureTitle {
-                  font-size: 1.5rem;
                 }
 
                 .normalFormButton {
@@ -200,6 +200,12 @@
                   padding-top: 10px;
                   padding-bottom: 10px;
                 }
+                .fixtureAdminContainer {
+                                  width: 100%;
+                                  margin: auto;
+                                  padding-top: 10px;
+                                  padding-bottom: 10px;
+                                }
                 .outlineTicketButton{
                     border:1px rgb(0, 53, 133) solid;
                     padding: 10px 20px;
@@ -349,6 +355,8 @@
               .fixtureTitle {
                   font-size: 1.5rem;
                   text-align: center;
+                  margin: 30px 0px;
+                  color: rgb(10, 79, 182);
                 }
               .ticketButtons{
                     display: flex;
@@ -424,7 +432,6 @@
                   text-decoration: none;
                 }
                 .ticketOutlineButton:hover {
-
                   background-color: rgb(10, 79, 182);
                   color: white;
                   cursor: pointer;
@@ -435,9 +442,9 @@
                   gap: 20px;
                   align-items: center;
                 }
-                 .ticketDetailsTitle{
-                      margin-bottom: 30px;
-                    }
+                .ticketDetailsTitle{
+                  margin-bottom: 30px;
+                }
                  .ticketDetailsTitle p{
                       font-size: 1.7rem;
                       letter-spacing: 2px;
@@ -449,7 +456,7 @@
                     width: 100%;
                     padding: 25px;
                     border-top: 1px solid black;
-                    margin-top: 100px;
+                    margin-top: 60px;
                 }
                 .rightsClass{
                     text-align: center;
@@ -559,9 +566,80 @@
                          background-color: rgb(0, 53, 133);
                          color: white;
                      }
-
                      .adminLogout a:hover{
                          color: white;
                      }
+                       .bottomAdminPart{
+                           width: 100%;
 
-            </style>
+                           padding: 10px;
+                           display: flex;
+                           justify-content: center;
+                           align-items: center;
+                         }
+
+                          <%-- Admin ticket report styling --%>
+
+                        .adminTableContainer {
+                               width: 60%;
+                               margin: 20px auto;
+                             }
+                             table {
+                               border-collapse: collapse;
+                               width: 100%;
+                             }
+                             th {
+                               color: rgb(10, 79, 182);
+                             }
+
+                             td,
+                             th {
+                               border: 1px solid #dddddd;
+                               text-align: left;
+                               padding: 12px;
+                             }
+                             .fixtureTitleTable {
+                               font-size: 1.5rem;
+                               color: rgb(10, 79, 182);
+                               margin-bottom: 20px;
+                               text-align: center;
+                             }
+
+                             tr:nth-child(even) {
+                               background-color: #dddddd;
+                             }
+                             .ticketReportOneButton {
+                               padding: 12px 24px;
+                               border-radius: 25px;
+                               border: none;
+                               background-color: rgb(10, 79, 182);
+                               color: white;
+                               cursor: pointer;
+                               text-decoration: none;
+                             }
+                             .ticketReportButton {
+                               display: flex;
+                               margin-top: 30px;
+                               gap: 20px;
+                               align-items: center;
+                               justify-content: center;
+                             }
+                             <%-- user admin styling --%>
+                              .userOutlineButton {
+                                     border: 1px rgb(0, 53, 133) solid;
+                                     width: 80px;
+                                     display: flex;
+                                     align-items: center;
+                                     justify-content: center;
+                                     padding: 5px 0px;
+                                     border-radius: 25px;
+                                     color: rgb(0, 53, 133);
+                                     text-decoration: none;
+                                   }
+                                   .userOutlineButton:hover {
+                                     /* border:none; */
+                                     background-color: rgb(10, 79, 182);
+                                     color: white;
+                                     cursor: pointer;
+                                   }
+                            </style>

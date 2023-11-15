@@ -8,11 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import com.cee.tech.app.model.entity.Fixture;
 import com.cee.tech.utils.CookieUtils;
 import com.cee.tech.utils.CustomLogger;
 
-import com.cee.tech.view.html.HtmlComponents;
 
 
 @WebServlet("/home")
@@ -61,14 +59,6 @@ public class HomeAction extends BaseActionClass{
                 "        <div class=\"imageContainer\">\n" +
                 "          <img class=\"bgImage\" src=\"https://images.unsplash.com/photo-1522778526097-ce0a22ceb253?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\" alt=\"stadium\">\n" +
                 "        </div>\n" +
-                "      </div>\n" +
-                "    </div>" +
-                " <div class=\"formMainContainer\">\n" +
-                "      <div class=\"createFixtureContainer\">\n" +
-                "        <p class=\"fixtureTitle\">Create Fixture</p>\n" +
-                "\n" +
-
-                HtmlComponents.form(Fixture.class) +
                 "      </div>\n" +
                 "    </div>");
 

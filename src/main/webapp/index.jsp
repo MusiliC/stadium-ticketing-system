@@ -1,5 +1,6 @@
 <%-- This is a JSP comment --%>
-<%@ page import="com.cee.tech.utils.Calculator" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -74,15 +75,13 @@
 
 <div class="login-container">
 
-<h2> <%= application.getInitParameter("AppName") %></h2>
+<h2> ${initParam.AppName}</h2>
 
-<% 
-  if( !session.isNew() && session.getAttribute("LoginId") != null ){
-    response.sendRedirect("./home");
-
-  } else {
-%>
-  <br/>
+<c:choose>
+<c:when test='${sessionScope.LoginId ne null}' >
+    <c:redirect url="./home"/>
+</c:when>
+<c:otherwise>
 
         <h2>Login</h2>
 
@@ -96,19 +95,19 @@
             <br/>
 
             <label for="username">Username:</label>
-            <input type="text" id="username" placeholder = "<jsp:getProperty name="loginFormBean" property="usernamePlaceholder" />" name="username" required/>
+            <input type="text" id="username" placeholder = " ${loginFormBean.usernamePlaceholder}" name="username" required/>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder = "<jsp:getProperty name="loginFormBean" property="passwordPlaceholder" />" required>
+            <input type="password" id="password" name="password" placeholder = " ${loginFormBean.passwordPlaceholder}"  required>
 
             <div class="regLink">
                 <input type="submit"/>
                 <div><a href="./register">No account? Create</a></div>
             </div>
 
-
         </form>
     </div>
     </body>
     </html>
-<% } %>
+</c:otherwise>
+</c:choose>

@@ -29,7 +29,7 @@ public class BaseActionClass extends HttpServlet {
     }
 
     public  void renderAdminPage(HttpServletRequest req, HttpServletResponse res, String content) throws ServletException, IOException {
-        req.setAttribute("content", content);
+        req.setAttribute("adminContent", content);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("./app/adminIndex.jsp");
         dispatcher.forward(req, res);

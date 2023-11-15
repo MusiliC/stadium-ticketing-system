@@ -15,10 +15,10 @@ public class AppInit implements ServletContextListener {
         System.out.println("***************** Initializing Database **********************");
 
         Database database = Database.getDbInstance();
-        database.getUsers().add(new User(0L, "Musili", "Musili123"));
-        database.getUsers().add(new User(1L, "Cee", "Cee123"));
-        database.getUsers().add(new User(2L, "Mahrez", "Mahrez123"));
-         database.getUsers().add(new User(3L, "Admin", "Admin123"));
+        database.getUsers().add(new User("1", "Musili", "Musili123", 1, 1));
+        database.getUsers().add(new User("2", "Cee", "Cee123", 2,0));
+        database.getUsers().add(new User("3", "Mahrez", "Mahrez123", 1,0));
+        database.getUsers().add(new User("4", "Admin", "Admin123"));
 
         database.getFixtures().add(new Fixture("Kenya Premier League","17:00 EAT", "Nyayo","Gor Mahia", "Shabana","27/10/2023"));
         database.getFixtures().add(new Fixture("Mozzart Cup","14:00 EAT", "MISC Kasarani","Kariobangi Sharks","Kakamega Homeboyz",  "1/11/2023"));

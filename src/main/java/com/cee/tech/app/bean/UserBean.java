@@ -8,7 +8,7 @@ public class UserBean implements UserBeanI{
     @Override
     public boolean registerUser(User user) {
         if (user.getPassword().equals(user.getConfirmPassword()))
-            database.getUsers().add(new User(100L, user.getUsername(),user.getPassword()));
+            database.getUsers().add(new User("100", user.getUsername(),user.getPassword()));
         return true;
     };
 

@@ -58,9 +58,6 @@ public class LoginAction extends BaseActionClass {
 
         }
 
-        // getInitParams - accessing servlet config
-        // getParams - getting client request data
-        // context(initialized servletContext) - context.getInitParams - servlet context
         PrintWriter print = res.getWriter();
 
         print.write("<html><body>Invalid credentials! <a href=\".\"> Login again </a></body></html>");

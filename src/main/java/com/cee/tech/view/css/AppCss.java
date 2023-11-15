@@ -337,6 +337,15 @@ public class AppCss implements Serializable {
             "        text-decoration: none;\n" +
             "        color: white;\n" +
             "    }" +
+            " .ticketDetailsTitle{\n" +
+            "                  margin-bottom: 30px;\n" +
+            "                }\n" +
+            "                 .ticketDetailsTitle p{\n" +
+            "                      font-size: 1.7rem;\n" +
+            "                      letter-spacing: 2px;\n" +
+            "                      color: rgb(10, 79, 182);\n" +
+            "                      font-weight: 570;\n" +
+            "                    }"+
             //ticketBook
             "  .mainTicketBookContainer{\n" +
             "      display: flex;\n" +

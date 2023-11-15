@@ -29,19 +29,43 @@ public class SidebarBean implements Serializable {
                 "                <div class=\"adminLinkTag\">\n" +
                 "                    <img width=\"22\" height=\"22\" src=\"https://img.icons8.com/ios/50/000000/edit--v1.png\" alt=\"edit--v1\" style=\"filter: invert(100%);\"/>\n" +
                 "                    <div>\n" +
-                "                    <a href=\"#\">Create Fixture</a>\n" +
+                "                    <a href=\"./admin\">Create Fixture</a>\n" +
                 "                </div>\n" +
                 "                </div>\n" +
+                "   <div class=\"adminLinkTag\">\n" +
+                "            <img\n" +
+                "              width=\"22\"\n" +
+                "              height=\"22\"\n" +
+                "              src=\"https://img.icons8.com/ios/50/football.png\"\n" +
+                "              alt=\"football\"\n" +
+                "              style=\"filter: invert(100%)\"\n" +
+                "            />\n" +
+                "            <div>\n" +
+                "              <a href=\"./adminfixtures\">Upcoming Fixtures</a>\n" +
+                "            </div>\n" +
+                "          </div>"+
+                "  <div class=\"adminLinkTag\">\n" +
+                "            <img\n" +
+                "              width=\"22\"\n" +
+                "              height=\"22\"\n" +
+                "              src=\"https://img.icons8.com/dotty/80/ticket.png\"\n" +
+                "              alt=\"ticket\"\n" +
+                "              style=\"filter: invert(100%)\"\n" +
+                "            />\n" +
+                "            <div>\n" +
+                "              <a href=\"./adminticket\">Ticket Management</a>\n" +
+                "            </div>\n" +
+                "          </div>"+
                 "                <div class=\"adminLinkTag\">\n" +
                 "                    <img width=\"22\" height=\"22\" src=\"https://img.icons8.com/ios/50/graph-report.png\" alt=\"graph-report\" style=\"filter: invert(100%);\"/>\n" +
                 "                    <div>\n" +
-                "                        <a href=\"#\">Ticket Report</a>\n" +
+                "                        <a href=\"./adminticketreport\">Ticket Report</a>\n" +
                 "                    </div>\n" +
                 "                </div>\n" +
                 "                <div class=\"adminLinkTag\">\n" +
                 "                    <img width=\"22\" height=\"22\" src=\"https://img.icons8.com/ios-glyphs/30/group.png\" alt=\"group\" style=\"filter: invert(100%);\"/>\n" +
                 "                    <div>\n" +
-                "                        <a href=\"#\">Users</a>\n" +
+                "                        <a href=\"./adminusers\">Users</a>\n" +
                 "                    </div>\n" +
                 "                </div>\n" +
                 "               \n" +

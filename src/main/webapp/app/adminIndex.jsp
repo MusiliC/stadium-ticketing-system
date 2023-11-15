@@ -1,6 +1,7 @@
 
 <%@ page import = "com.cee.tech.utils.CookieUtils" %>
 <%@ page import="javax.servlet.http.Cookie" %>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
                 <html>
@@ -29,6 +30,8 @@
 
  <jsp:useBean id="adminNavbarBean" class="com.cee.tech.usebean.admin.AdminNavbarBean"/>
  <jsp:useBean id="sidebar" class="com.cee.tech.usebean.admin.SidebarBean"/>
+  <jsp:useBean id="contentAdminHtmlRender" class="com.cee.tech.usebean.admin.AdminContentBean" scope="request"/>
+   <jsp:setProperty name="contentAdminHtmlRender" property="adminContent" value='${requestScope.adminContent}' />
 
  <%  adminNavbarBean.generateAdminMenu(firstLetter); %>
  <% sidebar.generateSidebar(); %>
@@ -38,7 +41,13 @@
 
                          <div class="adminContent">
                             <jsp:getProperty name="adminNavbarBean" property="adminMenu" />
+                               <div class="bottomAdminPart">
+                                    <%-- display content --%>
+                                     ${contentAdminHtmlRender.adminContent}
+                                </div>
                          </div>
+
+
           </div>
 
 

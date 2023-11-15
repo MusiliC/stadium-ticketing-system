@@ -17,7 +17,13 @@ public class AdminAction extends BaseActionClass {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        renderAdminPage(req,res,"<p>admin side</>");
+        renderAdminPage(req, res, " <div class=\"formMainContainer\">\n" +
+                "      <div class=\"createFixtureContainer\">\n" +
+                "        <p class=\"fixtureTitle\">Create Fixture</p>\n" +
+                "\n" +
+                HtmlComponents.form(Fixture.class) +
+                "      </div>\n" +
+                "    </div>");
 
     }
 

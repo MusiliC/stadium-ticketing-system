@@ -5,6 +5,7 @@ import com.cee.tech.view.html.EticketHtmlForm;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
+
 @EticketHtmlForm(label = "Fixture", url = "./fixtures", httpMethod = "POST")
 public class Fixture implements Serializable {
 
@@ -27,7 +28,6 @@ public class Fixture implements Serializable {
     public String getFixtureType() {
         return fixtureType;
     }
-
 
 
     public Fixture(String fixtureType, String fixtureTime, String fixtureLocation, String homeTeam, String awayTeam, String fixtureDate) {
@@ -96,13 +96,13 @@ public class Fixture implements Serializable {
     public void setFixtureLocation(String fixtureLocation) {
         this.fixtureLocation = fixtureLocation;
     }
+
     public void setFixtureType(String fixtureType) {
         this.fixtureType = fixtureType;
     }
 
     public Fixture() {
     }
-
 
 
     public String tableRow() {
@@ -125,6 +125,30 @@ public class Fixture implements Serializable {
         tbBuilder.append("<div class=\"ticket\">");
         tbBuilder.append("  <div class=\"outlineTicketButton\"><a href=\"./book\">Buy Ticket</a> </div>");
         tbBuilder.append("</div>");
+        tbBuilder.append("</div>");
+        return tbBuilder.toString();
+
+    }
+
+    public String tableAdminRow() {
+        StringBuilder tbBuilder = new StringBuilder();
+        tbBuilder.append("<div class=\"oneFixture\">");
+        tbBuilder.append("<div class=\"fixture\">");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getFixtureType())).append("</td>");
+        tbBuilder.append(" </div>");
+        tbBuilder.append("  <div class=\"timeLocation\">");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureTime())).append("</p>");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureDate())).append("</p>");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getFixtureLocation())).append("</p>");
+        tbBuilder.append(" </div>");
+        tbBuilder.append("<div class=\"teams\">");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getHomeTeam())).append("</p>");
+        tbBuilder.append("<p>").append(StringUtils.trimToEmpty(getAwayTeam())).append("</p>");
+        tbBuilder.append(" </div>");
+        tbBuilder.append("  <div class=\"homeButtons\">\n" +
+                "              <a href=\"./#\" class=\"homeOutlineButton\" >Edit</a>\n" +
+                "              <a href=\"./#\" class=\"homeNormalButton\">Delete</a>\n" +
+                "        </div>");
         tbBuilder.append("</div>");
         return tbBuilder.toString();
 

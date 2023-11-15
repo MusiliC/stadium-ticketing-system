@@ -34,7 +34,7 @@ public class OneTicket extends BaseActionClass {
 
 //        renderPage(req,res,);
 
-        new AppPage().renderHtml(req,res, firstLetter, "    <div class=\"ticketBodyContainer\">\n" +
+        new AppPage().renderHtml(req,res, firstLetter, "<div class=\"ticketBodyContainer\">\n" +
                 "<div class=\"ticketDetailsTitle\">\n" +
                         "        <p>Ticket Details</p>\n" +
                         "      </div>" +

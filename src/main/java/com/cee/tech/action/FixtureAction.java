@@ -17,8 +17,6 @@ public class FixtureAction extends BaseActionClass {
 
     private Fixture fixture = new Fixture();
 
-
-
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
         Database database = Database.getDbInstance();
