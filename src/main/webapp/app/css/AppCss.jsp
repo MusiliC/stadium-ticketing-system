@@ -355,7 +355,7 @@
               .fixtureTitle {
                   font-size: 1.5rem;
                   text-align: center;
-                  margin: 30px 0px;
+                  margin: 20px 0px;
                   color: rgb(10, 79, 182);
                 }
               .ticketButtons{
@@ -642,4 +642,42 @@
                                      color: white;
                                      cursor: pointer;
                                    }
+                                   .TicketPricingContainer {
+                                       width: 83%;
+                                       margin: auto;
+                                       padding-top: 10px;
+                                       padding-bottom: 10px;
+                                       width: 700px;
+                                     }
+                                     .formTicketContainer {
+                                      margin: 20px 0px;
+                                     }
+                                     .formTicketInput {
+                                          display: flex;
+                                          flex-direction: column;
+                                          gap: 5px;
+                                          margin: 5px 0px;
+                                        }
+                                        .formTicketInput input {
+                                          padding: 10px;
+                                          border-radius: 3px;
+                                          border: 1px solid lightgray;
+                                        }
+                                        .formTicketInput input:focus {
+                                          outline: none;
+                                        }
+                                          .ticketPriceItems{
+                                              margin: 40px 0px;
+                                            }
+                                            .ticketPriceTitle{
+                                              font-size: 1.5rem;
+                                              color: rgb(10, 79, 182);
+                                              text-align: center;
+                                              margin: 10px 0px;
+                                            }
+                                            .tablePricing{
+                                                    margin: 20px 0px;
+                                                  }
+
+                                <%-- ticket pricing --%>
                             </style>

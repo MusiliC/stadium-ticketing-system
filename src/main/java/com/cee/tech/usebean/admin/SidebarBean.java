@@ -44,6 +44,18 @@ public class SidebarBean implements Serializable {
                 "              <a href=\"./adminfixtures\">Upcoming Fixtures</a>\n" +
                 "            </div>\n" +
                 "          </div>"+
+                "     <div class=\"adminLinkTag\">\n" +
+                "            <img\n" +
+                "              width=\"22\"\n" +
+                "              height=\"22\"\n" +
+                "              src=\"https://img.icons8.com/ios/50/us-dollar-circled--v1.png\"\n" +
+                "              alt=\"us-dollar-circled--v1\"\n" +
+                "              style=\"filter: invert(100%)\"\n" +
+                "            />\n" +
+                "            <div>\n" +
+                "              <a href=\"./adminticketpricing\">Ticket Pricing</a>\n" +
+                "            </div>\n" +
+                "          </div>" +
                 "  <div class=\"adminLinkTag\">\n" +
                 "            <img\n" +
                 "              width=\"22\"\n" +

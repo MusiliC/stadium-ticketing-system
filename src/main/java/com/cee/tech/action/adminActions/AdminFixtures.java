@@ -13,8 +13,6 @@ import java.io.IOException;
 
 @WebServlet("/adminfixtures")
 public class AdminFixtures extends BaseActionClass {
-
-
     FixtureBeanI adminFixtureBean = new FixtureAdminBean();
 
     @Override
