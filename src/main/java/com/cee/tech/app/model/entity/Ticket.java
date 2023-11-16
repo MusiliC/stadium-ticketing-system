@@ -17,6 +17,17 @@ public class Ticket implements Serializable {
     @EticketFormField(label= "Number of Tickets", fieldType = "number")
     private int numberOfTickets;
 
+    public Ticket() {
+    }
+
+    public Ticket(String name, String email, String phoneNumber, String ticketType, int numberOfTickets) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.ticketType = ticketType;
+        this.numberOfTickets = numberOfTickets;
+    }
+
     public String getName() {
         return name;
     }
@@ -55,5 +66,13 @@ public class Ticket implements Serializable {
 
     public void setNumberOfTickets(int numberOfTickets) {
         this.numberOfTickets = numberOfTickets;
+    }
+
+    public String ticketCard(){
+        StringBuilder cardBuilder = new StringBuilder();
+
+
+
+        return  cardBuilder.toString();
     }
 }

@@ -1,5 +1,7 @@
 package com.cee.tech.app.model.entity;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -76,4 +78,20 @@ public class User implements Serializable {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+    public String UserDataTable(){
+        StringBuilder tbBuilder = new StringBuilder();
+
+        tbBuilder.append("<tr>");
+        tbBuilder.append("<td>").append(StringUtils.trimToEmpty(getUsername())).append("</td>");
+        tbBuilder.append("<td>").append(getVipTickets()).append("</td>");
+        tbBuilder.append("<td>").append(getNormalTickets()).append("</td>");
+        tbBuilder.append("<td>");
+        tbBuilder.append(" <div class=\"userOutlineButton\">Details</div>");
+        tbBuilder.append("</td>");
+        tbBuilder.append("</tr>");
+
+        return  tbBuilder.toString();
+
+    };
 }

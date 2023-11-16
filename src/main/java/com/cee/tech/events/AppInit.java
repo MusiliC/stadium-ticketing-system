@@ -1,6 +1,7 @@
 package com.cee.tech.events;
 
 import com.cee.tech.app.model.entity.Fixture;
+import com.cee.tech.app.model.entity.Ticket;
 import com.cee.tech.app.model.entity.TicketPricing;
 import com.cee.tech.app.model.entity.User;
 import com.cee.tech.database.Database;
@@ -25,6 +26,9 @@ public class AppInit implements ServletContextListener {
         database.getFixtures().add(new Fixture("Mozzart Cup","14:00 EAT", "MISC Kasarani","Kariobangi Sharks","Kakamega Homeboyz",  "1/11/2023"));
 
         database.getTicketPricing().add(new TicketPricing("CAF Champions League", 800, 300));
+
+        database.getBookTicket().add(new Ticket("Mahrez","Mahrez@gmail.com","+254768687334","VIP",1));
+        database.getBookTicket().add(new Ticket("Mahrez","Mahrez@gmail.com","+254768687334","Normal",2));
 
 
     }

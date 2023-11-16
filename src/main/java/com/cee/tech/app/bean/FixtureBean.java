@@ -16,7 +16,6 @@ public class FixtureBean implements FixtureBeanI, Serializable {
         for(Fixture fixture: fixtures)
             tbBuilder.append(fixture.tableRow());
 
-
         return tbBuilder.toString();
     };
     public Fixture addUpdateFixture(Fixture fixture)throws  Exception{

@@ -6,4 +6,6 @@ public interface UserBeanI {
     boolean registerUser(User user);
 
     boolean unregisterUser(User user);
+
+    public String allRegisteredUsers();
 }
