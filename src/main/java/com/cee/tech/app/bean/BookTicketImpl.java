@@ -1,6 +1,6 @@
-package com.cee.tech.app;
+package com.cee.tech.app.bean;
 
-import com.cee.tech.app.bean.BookTicketI;
+import com.cee.tech.app.bean.userbean.BookTicketI;
 import com.cee.tech.app.model.entity.Ticket;
 
 public class BookTicketImpl implements BookTicketI {

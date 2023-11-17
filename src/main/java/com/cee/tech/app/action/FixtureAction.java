@@ -1,11 +1,9 @@
-package com.cee.tech.action;
+package com.cee.tech.app.action;
 
-import com.cee.tech.app.bean.FixtureBean;
+import com.cee.tech.app.bean.userbean.FixtureBean;
 import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.app.model.entity.Fixture;
 import com.cee.tech.database.Database;
-import com.cee.tech.utils.CookieUtils;
-import com.cee.tech.view.html.AppPage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

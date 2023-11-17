@@ -1,4 +1,4 @@
-package com.cee.tech.action;
+package com.cee.tech.app.action;
 
 import com.cee.tech.app.bean.AuthBean;
 import com.cee.tech.app.bean.AuthBeanI;

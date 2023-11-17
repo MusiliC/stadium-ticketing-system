@@ -1,6 +1,6 @@
-package com.cee.tech.action.adminActions;
+package com.cee.tech.app.action.adminActions;
 
-import com.cee.tech.action.BaseActionClass;
+import com.cee.tech.app.action.BaseActionClass;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

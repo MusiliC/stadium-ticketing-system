@@ -1,10 +1,9 @@
-package com.cee.tech.action.adminActions;
+package com.cee.tech.app.action.adminActions;
 
-import com.cee.tech.action.BaseActionClass;
+import com.cee.tech.app.action.BaseActionClass;
 import com.cee.tech.app.bean.FixtureBeanI;
 import com.cee.tech.app.bean.adminbean.FixtureAdminBean;
 import com.cee.tech.app.model.entity.Fixture;
-import com.cee.tech.app.model.entity.TicketPricing;
 import com.cee.tech.database.Database;
 
 import javax.servlet.ServletException;

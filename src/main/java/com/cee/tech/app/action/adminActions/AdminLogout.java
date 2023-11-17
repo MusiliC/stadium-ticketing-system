@@ -1,4 +1,4 @@
-package com.cee.tech.action.adminActions;
+package com.cee.tech.app.action.adminActions;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

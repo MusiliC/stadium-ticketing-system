@@ -1,6 +1,6 @@
-package com.cee.tech.action;
+package com.cee.tech.app.action;
 
-import com.cee.tech.app.bean.UserBean;
+import com.cee.tech.app.bean.adminbean.UserBean;
 import com.cee.tech.app.bean.UserBeanI;
 import com.cee.tech.app.model.entity.User;
 import com.cee.tech.database.Database;

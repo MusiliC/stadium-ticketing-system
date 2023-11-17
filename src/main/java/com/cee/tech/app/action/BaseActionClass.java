@@ -1,4 +1,4 @@
-package com.cee.tech.action;
+package com.cee.tech.app.action;
 import org.apache.commons.beanutils.BeanUtils;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -1,7 +1,7 @@
-package com.cee.tech.action.adminActions;
+package com.cee.tech.app.action.adminActions;
 
-import com.cee.tech.action.BaseActionClass;
-import com.cee.tech.app.bean.UserBean;
+import com.cee.tech.app.action.BaseActionClass;
+import com.cee.tech.app.bean.adminbean.UserBean;
 import com.cee.tech.app.bean.UserBeanI;
 
 import javax.servlet.ServletException;

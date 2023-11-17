@@ -1,11 +1,12 @@
-package com.cee.tech.app.bean;
+package com.cee.tech.app.bean.adminbean;
 
+import com.cee.tech.app.bean.UserBeanI;
 import com.cee.tech.app.model.entity.User;
 import com.cee.tech.database.Database;
 
 import java.util.List;
 
-public class UserBean implements UserBeanI{
+public class UserBean implements UserBeanI {
     Database database = Database.getDbInstance();
     @Override
     public boolean registerUser(User user) {

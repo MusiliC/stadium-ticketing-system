@@ -49,7 +49,7 @@ public class AuthFilter implements Filter {
                 String username = (String) httpSession.getAttribute("username");
                 if ("Admin".equals(username)) {
                     // User is an admin, allow access to /admin pages
-                    if (servletPath.startsWith("/admin")) {
+                    if (servletPath.startsWith("/admin") || servletPath.startsWith("/")) {
                         chain.doFilter(request, response);
                     } else {
                         httpResponse.sendRedirect(httpRequest.getContextPath() + "/admin");
